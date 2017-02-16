@@ -254,6 +254,10 @@ if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
 
+"" Enable snipMate compatibility feature.
+let g:neosnippet#enable_snipmate_compatibility = 1
+"" Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory= $HOME . "/.vim/snip"
 
 
 " ---------------------------------------------------------------------------
@@ -525,4 +529,8 @@ let g:pdv_template_dir = $HOME ."/.vim/dein.vim/repos/github.com/tobyS/pdv/templ
 autocmd FileType php nnoremap <C-I> :call pdv#DocumentCurrentLine()<CR>
 
 
+
+" ---------------------------------------------------------------------------
+nmap <Leader>a :execute "set colorcolumn=" . join(range(81, 9999), ',')<CR>
+nmap <Leader>s :set colorcolumn=<CR>
 
