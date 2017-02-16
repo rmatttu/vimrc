@@ -82,6 +82,8 @@ call dein#add('Shougo/dein.vim')
 
 " Add or remove your plugins here:
 call dein#add('fuenor/qfixhowm')
+call dein#add('tobyS/vmustache')
+call dein#add('tobyS/pdv')
 call dein#add('Shougo/neocomplete.vim', { 'rev': '77ec549' })
 call dein#add('Shougo/neosnippet.vim')
 call dein#add('Shougo/neosnippet-snippets')
@@ -105,12 +107,12 @@ call dein#add('tyru/caw.vim.git')
 call dein#add('nathanaelkane/vim-indent-guides.git')
 call dein#add('Yggdroot/indentLine')
 call dein#add('Shougo/vimfiler.vim')
-if has('unix')
-    call dein#add('joedicastro/vim-molokai256.git')
-    call dein#add('brafales/vim-desert256.git')
+ if has('unix')
+     call dein#add('joedicastro/vim-molokai256.git')
+     call dein#add('brafales/vim-desert256.git')
     call dein#add('Shougo/vimproc.vim', {'build': 'make'})
     call dein#add('Shougo/vimshell.vim')
-endif
+ endif
 
 " colorscheme
 call dein#add('sjl/badwolf')
@@ -260,11 +262,13 @@ endif
 " 入力モードで開始する
 let g:unite_enable_start_insert=1
 " バッファ一覧
-noremap <C-P> :Unite buffer<CR>
+" noremap <C-P> :Unite buffer<CR>
 " ファイル一覧
-noremap <C-B> :Unite buffer<CR>
+"noremap <C-B> :Unite buffer<CR>
+noremap tb :Unite buffer<CR>
 " 最近使ったファイルの一覧
-noremap <C-Z> :Unite file_mru<CR>
+"noremap <C-Z> :Unite file_mru<CR>
+noremap tz :Unite file_mru<CR>
 
 " ウィンドウを分割して開く
 au FileType unite nnoremap <silent> <buffer> <expr> <C-J> unite#do_action('split')
@@ -344,7 +348,7 @@ let g:nerdtree_tabs_open_on_gui_startup = 0
 :command Tg VimFiler
 
 noremap tr :NERDTreeTabsToggle<CR>
-"noremap tr :VimFilerExplorer<CR>
+" noremap tr :VimFilerExplorer<CR>
 noremap tf :NERDTreeFind<CR>
 noremap tv :VimFiler<CR>
 
@@ -509,6 +513,16 @@ else
     "let g:indentLine_conceallevel = 2
     "let g:indentLine_setConceal = 0
 end
+
+
+
+" ---------------------------------------------------------------------------
+" PDV - PHP Documentor for VIM - 2
+"
+" snip用はうまく動かない（tab移動できなかった）
+" let g:pdv_template_dir = $HOME ."/.vim/dein.vim/repos/github.com/tobyS/pdv/templates_snip"
+let g:pdv_template_dir = $HOME ."/.vim/dein.vim/repos/github.com/tobyS/pdv/templates"
+autocmd FileType php nnoremap <C-I> :call pdv#DocumentCurrentLine()<CR>
 
 
 
