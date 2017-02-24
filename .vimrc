@@ -92,7 +92,6 @@ call dein#add('jistr/vim-nerdtree-tabs')
 call dein#add('Xuyuanp/nerdtree-git-plugin')
 call dein#add('Shougo/neomru.vim')
 call dein#add('Shougo/unite.vim')
-call dein#add('Shougo/vimfiler')
 call dein#add('ctrlpvim/ctrlp.vim')
 call dein#add('tpope/vim-surround')
 call dein#add('tpope/vim-fugitive')
@@ -106,12 +105,11 @@ call dein#add('bronson/vim-trailing-whitespace.git')
 call dein#add('tyru/caw.vim.git')
 call dein#add('nathanaelkane/vim-indent-guides.git')
 call dein#add('Yggdroot/indentLine')
-call dein#add('Shougo/vimfiler.vim')
  if has('unix')
      call dein#add('joedicastro/vim-molokai256.git')
      call dein#add('brafales/vim-desert256.git')
-    call dein#add('Shougo/vimproc.vim', {'build': 'make'})
-    call dein#add('Shougo/vimshell.vim')
+     call dein#add('Shougo/vimproc.vim', {'build': 'make'})
+     call dein#add('Shougo/vimshell.vim')
  endif
 
 " colorscheme
@@ -257,7 +255,8 @@ endif
 "" Enable snipMate compatibility feature.
 let g:neosnippet#enable_snipmate_compatibility = 1
 "" Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory= $HOME . "/.vim/snip"
+let g:neosnippet#snippets_directory= $HOME ."/.vim/snip"
+
 
 
 " ---------------------------------------------------------------------------
@@ -341,20 +340,23 @@ call NERDTreeHighlightFile('php',    'Magenta', 'none', '#ff00ff', '#151515')
 " 不可視ファイルを表示する
 let NERDTreeShowHidden = 1
 
+"auto close if the only open a NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
 
 
 " ---------------------------------------------------------------------------
 " vim-nerdtree-tabs
 "
 let g:nerdtree_tabs_open_on_gui_startup = 0
-:command Tr NERDTreeTabsToggle
-:command Tf NERDTreeFind
-:command Tg VimFiler
+let g:nerdtree_tabs_synchronize_focus = 1
+
+" バグるので使用しない(0)
+let g:nerdtree_tabs_autoclose = 0
 
 noremap tr :NERDTreeTabsToggle<CR>
-" noremap tr :VimFilerExplorer<CR>
+"noremap tr :NERDTreeToggle<CR>
 noremap tf :NERDTreeFind<CR>
-noremap tv :VimFiler<CR>
 
 
 
