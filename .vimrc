@@ -64,6 +64,8 @@ map <silent>    <F3>    :bn<cr>
 
 inoremap jj <Esc>
 
+nmap <Space> <Leader>
+
 
 "dein Scripts-----------------------------
 if &compatible
@@ -84,7 +86,7 @@ call dein#add('Shougo/dein.vim')
 call dein#add('fuenor/qfixhowm')
 call dein#add('tobyS/vmustache')
 call dein#add('tobyS/pdv')
-call dein#add('Shougo/neocomplete.vim')
+call dein#add('Shougo/neocomplete.vim', { 'rev': '77ec549' })
 call dein#add('Shougo/neosnippet.vim')
 call dein#add('Shougo/neosnippet-snippets')
 call dein#add('scrooloose/nerdtree')
@@ -115,6 +117,18 @@ call dein#add('Yggdroot/indentLine')
 " colorscheme
 call dein#add('sjl/badwolf')
 call dein#add('aereal/vim-colors-japanesque.git')
+
+
+"--------------------------------------------- test
+call dein#add('plasticboy/vim-markdown')
+call dein#add('kannokanno/previm')
+call dein#add('tyru/open-browser.vim')
+
+call dein#add('tacroe/unite-mark')
+call dein#add('jacquesbh/vim-showmarks')
+"---------------------------------------------
+
+
 
 " Required:
 call dein#end()
@@ -528,11 +542,80 @@ end
 " snip用はうまく動かない（tab移動できなかった）
 " let g:pdv_template_dir = $HOME ."/.vim/dein.vim/repos/github.com/tobyS/pdv/templates_snip"
 let g:pdv_template_dir = $HOME ."/.vim/dein.vim/repos/github.com/tobyS/pdv/templates"
-autocmd FileType php nnoremap <C-I> :call pdv#DocumentCurrentLine()<CR>
+autocmd FileType php nnoremap <Leader>p :call pdv#DocumentCurrentLine()<CR>
 
 
 
 " ---------------------------------------------------------------------------
+" 80行目に線を引く設定
+"
 nmap <Leader>a :execute "set colorcolumn=" . join(range(81, 9999), ',')<CR>
 nmap <Leader>s :set colorcolumn=<CR>
+
+
+" ---------------------------------------------------------------------------
+" Previm
+"
+" *.mdファイルをmarkdownとみなす
+augroup PrevimSettings
+    autocmd!
+    autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+augroup END
+
+
+
+" ---------------------------------------------------------------------------
+" unite mark
+" https://github.com/tacroe/unite-mark
+" http://d.hatena.ne.jp/tacroe/20101119/1290115586
+nnoremap <silent> m, :Unite mark<CR>
+
+" mark auto reg
+" http://saihoooooooo.hatenablog.com/entry/2013/04/30/001908
+if !exists('g:markrement_char')
+    let g:markrement_char = [
+    \     'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l'
+    \ ]
+endif
+nnoremap <silent>mm :<C-u>call <SID>AutoMarkrement()<CR>
+function! s:AutoMarkrement()
+    if !exists('b:markrement_pos')
+        let b:markrement_pos = 0
+    else
+        let b:markrement_pos = (b:markrement_pos + 1) % len(g:markrement_char)
+    endif
+    execute 'mark' g:markrement_char[b:markrement_pos]
+    echo 'marked' g:markrement_char[b:markrement_pos]
+    :DoShowMarks
+endfunction
+
+
+" ヤンクした場所をzでマークする
+nmap yy yymz
+vmap y ymz
+
+" visualmark.vim
+" http://nanasi.jp/articles/vim/visualmark_vim.html
+nnoremap <silent> ma 'a
+nnoremap <silent> mb 'b
+nnoremap <silent> mc 'c
+nnoremap <silent> md 'd
+nnoremap <silent> me 'e
+nnoremap <silent> mf 'f
+nnoremap <silent> mg 'g
+nnoremap <silent> mh 'h
+nnoremap <silent> mi 'i
+nnoremap <silent> mj 'j
+nnoremap <silent> mk 'k
+nnoremap <silent> ml 'l
+
+" myでヤンクした場所にジャンプ（zマークに飛ぶ）
+nnoremap <silent> my 'y
+nnoremap <silent> mz my
+
+
+nnoremap m[ ['
+nnoremap m] ]'
+
+
 
