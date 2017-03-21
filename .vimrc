@@ -553,6 +553,16 @@ nmap <Leader>a :execute "set colorcolumn=" . join(range(81, 9999), ',')<CR>
 nmap <Leader>s :set colorcolumn=<CR>
 
 
+
+" ---------------------------------------------------------------------------
+" vim-markdown
+"
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_conceal = 0
+"set conceallevel=2
+
+
+
 " ---------------------------------------------------------------------------
 " Previm
 "
@@ -562,6 +572,7 @@ augroup PrevimSettings
     autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 augroup END
 
+nnoremap <Leader>o :PrevimOpen<CR>
 
 
 " ---------------------------------------------------------------------------
@@ -590,6 +601,10 @@ function! s:AutoMarkrement()
 endfunction
 
 
+" ---------------------------------------------------------------------------
+"  marker settings
+"
+
 " ヤンクした場所をzでマークする
 nmap yy yymz
 vmap y ymz
@@ -608,6 +623,18 @@ nnoremap <silent> mi 'i
 nnoremap <silent> mj 'j
 nnoremap <silent> mk 'k
 nnoremap <silent> ml 'l
+"nnoremap <silent> mm 'm
+"nnoremap <silent> mn 'n
+"nnoremap <silent> mo 'o
+"nnoremap <silent> mp 'p
+"nnoremap <silent> mq 'q
+"nnoremap <silent> mr 'r
+"nnoremap <silent> ms 's
+"nnoremap <silent> mt 't
+"nnoremap <silent> mu 'u
+"nnoremap <silent> mv 'v
+"nnoremap <silent> mw 'w
+"nnoremap <silent> mx 'x
 
 " myでヤンクした場所にジャンプ（zマークに飛ぶ）
 nnoremap <silent> my 'y
@@ -615,7 +642,9 @@ nnoremap <silent> mz my
 
 
 nnoremap m[ ['
+nnoremap mp ['
 nnoremap m] ]'
+nnoremap mn ]'
 
 
 
