@@ -65,6 +65,7 @@ map <silent>    <F3>    :bn<cr>
 inoremap jj <Esc>
 
 nmap <Space> <Leader>
+vmap <Space> <Leader>
 
 
 "dein Scripts-----------------------------
@@ -107,6 +108,7 @@ call dein#add('bronson/vim-trailing-whitespace.git')
 call dein#add('tyru/caw.vim.git')
 call dein#add('nathanaelkane/vim-indent-guides.git')
 call dein#add('Yggdroot/indentLine')
+call dein#add('amiorin/vim-textile')
  if has('unix')
      call dein#add('joedicastro/vim-molokai256.git')
      call dein#add('brafales/vim-desert256.git')
