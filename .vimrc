@@ -67,6 +67,55 @@ inoremap jj <Esc>
 nmap <Space> <Leader>
 vmap <Space> <Leader>
 
+" 80行目に線を引く設定
+nmap <Leader>l :execute "set colorcolumn=" . join(range(81, 9999), ',')<CR>
+nmap <Leader>k :set colorcolumn=<CR>
+
+"  marker settings
+" ヤンクした場所をzでマークする
+nmap yy yymy
+vmap y ymy
+nmap p pmp
+nmap p pmp
+nmap dd ddmd
+vmap d dmd
+
+" visualmark.vim
+" http://nanasi.jp/articles/vim/visualmark_vim.html
+nnoremap <silent> <Leader>a 'a
+nnoremap <silent> <Leader>b 'b
+nnoremap <silent> <Leader>c 'c
+"nnoremap <silent> <Leader>d 'd
+nnoremap <silent> <Leader>e 'e
+nnoremap <silent> <Leader>f 'f
+nnoremap <silent> <Leader>g 'g
+"nnoremap <silent> <Leader>h 'h
+"nnoremap <silent> <Leader>i 'i
+"nnoremap <silent> <Leader>j 'j
+"nnoremap <silent> <Leader>k 'k
+"nnoremap <silent> <Leader>l 'l
+"nnoremap <silent> <Leader>m 'm
+"nnoremap <silent> <Leader>n 'n
+"nnoremap <silent> <Leader>o 'o
+"nnoremap <silent> <Leader>p 'p
+"nnoremap <silent> <Leader>q 'q
+"nnoremap <silent> <Leader>r 'r
+"nnoremap <silent> <Leader>s 's
+"nnoremap <silent> <Leader>t 't
+"nnoremap <silent> <Leader>u 'u
+"nnoremap <silent> <Leader>v 'v
+"nnoremap <silent> <Leader>w 'w
+"nnoremap <silent> <Leader>x 'x
+
+" myでヤンクした場所にジャンプ（zマークに飛ぶ）
+nnoremap <silent> <Leader>y 'y
+nnoremap <silent> <Leader>p 'p
+nnoremap <silent> <Leader>d 'd
+
+nnoremap <Leader>[ ['
+nnoremap <Leader>] ]'
+
+
 
 "dein Scripts-----------------------------
 if &compatible
@@ -498,10 +547,8 @@ endfunction
 " ---------------------------------------------------------------------------
 " caw
 " コメントの追加・削除を行なう
-nmap <Leader>/ <Plug>(caw:zeropos:toggle)
-vmap <Leader>/ <Plug>(caw:zeropos:toggle)
-nmap <Leader>c <Plug>(caw:hatpos:toggle)
-vmap <Leader>c <Plug>(caw:hatpos:toggle)
+nmap <Leader>/ <Plug>(caw:hatpos:toggle)
+vmap <Leader>/ <Plug>(caw:hatpos:toggle)
 
 
 " ---------------------------------------------------------------------------
@@ -549,14 +596,6 @@ autocmd FileType php nnoremap <Leader>p :call pdv#DocumentCurrentLine()<CR>
 
 
 " ---------------------------------------------------------------------------
-" 80行目に線を引く設定
-"
-nmap <Leader>a :execute "set colorcolumn=" . join(range(81, 9999), ',')<CR>
-nmap <Leader>s :set colorcolumn=<CR>
-
-
-
-" ---------------------------------------------------------------------------
 " vim-markdown
 "
 let g:vim_markdown_folding_disabled = 1
@@ -587,10 +626,10 @@ nnoremap <silent> m, :Unite mark<CR>
 " http://saihoooooooo.hatenablog.com/entry/2013/04/30/001908
 if !exists('g:markrement_char')
     let g:markrement_char = [
-    \     'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l'
+    \     'a', 'b', 'c', 'e', 'f', 'g'
     \ ]
 endif
-nnoremap <silent>mm :<C-u>call <SID>AutoMarkrement()<CR>
+nnoremap <silent><Leader>m :<C-u>call <SID>AutoMarkrement()<CR>
 function! s:AutoMarkrement()
     if !exists('b:markrement_pos')
         let b:markrement_pos = 0
@@ -601,52 +640,6 @@ function! s:AutoMarkrement()
     echo 'marked' g:markrement_char[b:markrement_pos]
     :DoShowMarks
 endfunction
-
-
-" ---------------------------------------------------------------------------
-"  marker settings
-"
-
-" ヤンクした場所をzでマークする
-nmap yy yymz
-vmap y ymz
-
-" visualmark.vim
-" http://nanasi.jp/articles/vim/visualmark_vim.html
-nnoremap <silent> ma 'a
-nnoremap <silent> mb 'b
-nnoremap <silent> mc 'c
-nnoremap <silent> md 'd
-nnoremap <silent> me 'e
-nnoremap <silent> mf 'f
-nnoremap <silent> mg 'g
-nnoremap <silent> mh 'h
-nnoremap <silent> mi 'i
-nnoremap <silent> mj 'j
-nnoremap <silent> mk 'k
-nnoremap <silent> ml 'l
-"nnoremap <silent> mm 'm
-"nnoremap <silent> mn 'n
-"nnoremap <silent> mo 'o
-"nnoremap <silent> mp 'p
-"nnoremap <silent> mq 'q
-"nnoremap <silent> mr 'r
-"nnoremap <silent> ms 's
-"nnoremap <silent> mt 't
-"nnoremap <silent> mu 'u
-"nnoremap <silent> mv 'v
-"nnoremap <silent> mw 'w
-"nnoremap <silent> mx 'x
-
-" myでヤンクした場所にジャンプ（zマークに飛ぶ）
-nnoremap <silent> my 'y
-nnoremap <silent> mz my
-
-
-nnoremap m[ ['
-nnoremap mp ['
-nnoremap m] ]'
-nnoremap mn ]'
 
 
 
