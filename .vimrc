@@ -57,6 +57,7 @@ endif
 " KeyMap
 noremap <ESC><ESC> :noh<ENTER>
 nnoremap gw <C-w><C-w>
+map ; :
 
 " ノーマルモードのときにF2で前のバッファ、F3で次のバッファに移動する
 map <silent>    <F2>    :bp<cr>
@@ -159,8 +160,8 @@ call dein#add('nathanaelkane/vim-indent-guides.git')
 call dein#add('Yggdroot/indentLine')
 call dein#add('amiorin/vim-textile')
  if has('unix')
-     call dein#add('joedicastro/vim-molokai256.git')
-     call dein#add('brafales/vim-desert256.git')
+call dein#add('joedicastro/vim-molokai256.git')
+call dein#add('brafales/vim-desert256.git')
      call dein#add('Shougo/vimproc.vim', {'build': 'make'})
      call dein#add('Shougo/vimshell.vim')
  endif
