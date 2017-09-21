@@ -159,9 +159,11 @@ call dein#add('tyru/caw.vim.git')
 call dein#add('nathanaelkane/vim-indent-guides.git')
 call dein#add('Yggdroot/indentLine')
 call dein#add('amiorin/vim-textile')
- if has('unix')
+call dein#add('nvie/vim-flake8')
+
 call dein#add('joedicastro/vim-molokai256.git')
 call dein#add('brafales/vim-desert256.git')
+ if has('unix')
      call dein#add('Shougo/vimproc.vim', {'build': 'make'})
      call dein#add('Shougo/vimshell.vim')
  endif
@@ -641,6 +643,15 @@ function! s:AutoMarkrement()
     echo 'marked' g:markrement_char[b:markrement_pos]
     :DoShowMarks
 endfunction
+
+
+" ---------------------------------------------------------------------------
+" nvie/vim-flake8
+"
+if has('win32') || has('win64')
+    " windows miniconda用設定
+    let g:flake8_cmd=$HOME . '/Miniconda2/Scripts/flake8.exe'
+endif
 
 
 
