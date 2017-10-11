@@ -212,15 +212,14 @@ endif
 
 " ---------------------------------------------------------------------------
 " QFixHowm
-"QFixHowmキーマップ
 "let QFixHowm_Key = 'g'
-"howm_dirはファイルを保存したいディレクトリを設定。
 let howm_dir             = '$HOME/.vim/howm'
-"let howm_filename        = '%Y/%m/%Y-%m-%d-%H%M%S.howm'
+let howm_filename        = '%Y/%m/%Y-%m-%d-%H%M%S.md'
 "let howm_fileencoding    = 'utf-8'
 "let howm_fileformat      = 'unix'
-"let QFixHowm_DiaryFile = 'diary/%Y/%m/%Y-%m-%d-000000.howm'
-" QFixList表示でファイルへ移動したらウィンドウを閉じる
+let QFixHowm_DiaryFile = 'diary/%Y/%m/%Y-%m-%d-000000.md'
+let QFixHowm_FileType = 'markdown'
+let QFixHowm_Title = '#'
 let QFixHowm_ListCloseOnJump = 1
 let QFixHowm_Folding = 0
 
