@@ -52,6 +52,9 @@ if has('unix')
     set viminfo='100,<50,s10,h,rA:,rB:
 endif
 
+" 対応括弧に'<'と'>'のペアを追加
+set matchpairs& matchpairs+=<:>
+
 
 " ---------------------------------------------------------------------------
 " KeyMap
@@ -160,6 +163,7 @@ call dein#add('nathanaelkane/vim-indent-guides.git')
 call dein#add('Yggdroot/indentLine')
 call dein#add('amiorin/vim-textile')
 call dein#add('nvie/vim-flake8')
+call dein#add('dhruvasagar/vim-table-mode')
 
 call dein#add('joedicastro/vim-molokai256.git')
 call dein#add('brafales/vim-desert256.git')
@@ -218,10 +222,11 @@ let howm_filename        = '%Y/%m/%Y-%m-%d-%H%M%S.md'
 "let howm_fileencoding    = 'utf-8'
 "let howm_fileformat      = 'unix'
 let QFixHowm_DiaryFile = 'diary/%Y/%m/%Y-%m-%d-000000.md'
-let QFixHowm_FileType = 'markdown'
-let QFixHowm_Title = '#'
+let QFixHowm_FileType = 'markdown.qfix_memo'
+let QFixHowm_Title = '='
 let QFixHowm_ListCloseOnJump = 1
 let QFixHowm_Folding = 0
+
 
 " ---------------------------------------------------------------------------
 " neocomplete.vim
@@ -653,4 +658,21 @@ if has('win32') || has('win64')
 endif
 
 
+" ---------------------------------------------------------------------------
+" vim-table-mode
+"
+function! s:isAtStartOfLine(mapping)
+  let text_before_cursor = getline('.')[0 : col('.')-1]
+  let mapping_pattern = '\V' . escape(a:mapping, '\')
+  let comment_pattern = '\V' . escape(substitute(&l:commentstring, '%s.*$', '', ''), '\')
+  return (text_before_cursor =~? '^' . ('\v(' . comment_pattern . '\v)?') . '\s*\v' . mapping_pattern . '\v$')
+endfunction
 
+inoreabbrev <expr> <bar><bar>
+          \ <SID>isAtStartOfLine('\|\|') ?
+          \ '<c-o>:TableModeEnable<cr><bar><space><bar><left><left>' : '<bar><bar>'
+inoreabbrev <expr> __
+          \ <SID>isAtStartOfLine('__') ?
+          \ '<c-o>:silent! TableModeDisable<cr>' : '__'
+
+let g:table_mode_corner='|'
