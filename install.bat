@@ -16,6 +16,7 @@ git clone https://github.com/Shougo/dein.vim.git %USERPROFILE%\.vim\dein.vim\rep
 rem vim設定ファイルコピー
 copy .vimrc %USERPROFILE%\
 copy .gvimrc %USERPROFILE%\
+xcopy snip %USERPROFILE%\.vim\snip\
 
 pause
 
