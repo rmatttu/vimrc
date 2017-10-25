@@ -165,14 +165,9 @@ call dein#add('amiorin/vim-textile')
 call dein#add('nvie/vim-flake8')
 call dein#add('dhruvasagar/vim-table-mode')
 
+" colorscheme
 call dein#add('joedicastro/vim-molokai256.git')
 call dein#add('brafales/vim-desert256.git')
- if has('unix')
-     call dein#add('Shougo/vimproc.vim', {'build': 'make'})
-     call dein#add('Shougo/vimshell.vim')
- endif
-
-" colorscheme
 call dein#add('sjl/badwolf')
 call dein#add('aereal/vim-colors-japanesque.git')
 
