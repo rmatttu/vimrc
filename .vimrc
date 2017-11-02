@@ -213,11 +213,11 @@ endif
 " QFixHowm
 "let QFixHowm_Key = 'g'
 let howm_dir             = '$HOME/.vim/howm'
-let howm_filename        = '%Y/%m/%Y-%m-%d-%H%M%S.md'
+let howm_filename        = '%Y/%m/%Y-%m-%d-%H%M%S.txt'
 "let howm_fileencoding    = 'utf-8'
 "let howm_fileformat      = 'unix'
-let QFixHowm_DiaryFile = 'diary/%Y/%m/%Y-%m-%d-000000.md'
-let QFixHowm_FileType = 'markdown.qfix_memo'
+let QFixHowm_DiaryFile = 'diary/%Y/%m/%Y-%m-%d-000000.txt'
+let QFixHowm_FileType = 'qfix_memo'
 let QFixHowm_Title = '='
 let QFixHowm_ListCloseOnJump = 1
 let QFixHowm_Folding = 0
