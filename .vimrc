@@ -177,6 +177,7 @@ call dein#add('aereal/vim-colors-japanesque.git')
 call dein#add('plasticboy/vim-markdown')
 call dein#add('kannokanno/previm')
 call dein#add('tyru/open-browser.vim')
+call dein#add('heavenshell/vim-pydocstring')
 
 call dein#add('tacroe/unite-mark')
 call dein#add('jacquesbh/vim-showmarks')
@@ -209,17 +210,9 @@ if has('unix')
 endif
 
 
-
 " ---------------------------------------------------------------------------
 " QFixHowm
-"let QFixHowm_Key = 'g'
-let howm_dir             = '$HOME/.vim/howm'
-let howm_filename        = '%Y/%m/%Y-%m-%d-%H%M%S.txt'
-"let howm_fileencoding    = 'utf-8'
-"let howm_fileformat      = 'unix'
-let QFixHowm_DiaryFile = 'diary/%Y/%m/%Y-%m-%d-000000.txt'
-let QFixHowm_FileType = 'qfix_memo'
-let QFixHowm_Title = '='
+let howm_dir             = $HOME.'/.vim/howm'
 let QFixHowm_ListCloseOnJump = 1
 let QFixHowm_Folding = 0
 
