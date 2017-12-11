@@ -3,12 +3,15 @@
 " vimでヤンク(コピー)するとwindowsのクリップボードにも格納
 set clipboard=unnamed
 
-" .swapファイルを作らない
-set noswapfile
-" バックアップファイルを作らない
-set nowritebackup
-" バックアップをしない
-set nobackup
+" .swapファイル
+" set noswapfile
+set directory=~/.vim/tmp
+
+" バックアップファイル
+set backupdir=~/.vim/tmp
+" set nowritebackup
+" set nobackup
+
 " undo ファイルを作成しない
 set noundofile
 
