@@ -168,6 +168,8 @@ call dein#add('Yggdroot/indentLine')
 call dein#add('amiorin/vim-textile')
 call dein#add('nvie/vim-flake8')
 call dein#add('dhruvasagar/vim-table-mode')
+call dein#add('mattn/sonictemplate-vim')
+call dein#add('heavenshell/vim-jsdoc')
 
 " colorscheme
 call dein#add('joedicastro/vim-molokai256.git')
@@ -215,7 +217,7 @@ endif
 
 " ---------------------------------------------------------------------------
 " QFixHowm
-let howm_dir             = $HOME.'/.vim/howm'
+let howm_dir = $HOME.'/.vim/howm'
 let QFixHowm_ListCloseOnJump = 1
 let QFixHowm_Folding = 0
 
@@ -652,3 +654,17 @@ inoreabbrev <expr> __
           \ '<c-o>:silent! TableModeDisable<cr>' : '__'
 
 let g:table_mode_corner='|'
+
+
+" ---------------------------------------------------------------------------
+" sonictemplete-vim
+"
+" let g:sonictemplate_vim_template_dir='~/.vim/template'
+let g:sonictemplate_vim_template_dir=$HOME . '/.vim/template'
+
+
+" ---------------------------------------------------------------------------
+" heavenshell/vim-jsdoc
+"
+nmap <silent> <Leader>j <Plug>(jsdoc)
+
