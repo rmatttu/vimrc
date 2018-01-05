@@ -456,6 +456,9 @@ let g:lightline = {
             \ 'active': {
             \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
             \ },
+            \ 'component': {
+		    \   'lineinfo': ' %3l:%-2v',
+            \ },
             \ 'component_function': {
             \   'modified': 'LightLineModified',
             \   'readonly': 'LightLineReadonly',
@@ -466,8 +469,8 @@ let g:lightline = {
             \   'fileencoding': 'LightLineFileencoding',
             \   'mode': 'LightLineMode',
             \ },
-            \ 'separator': { 'left': "\u2b80", 'right': "\u2b82" },
-            \ 'subseparator': { 'left': "\u2b81", 'right': "\u2b83" }
+            \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
+            \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
             \ }
 " non powerline
 " \ 'separator': { 'left': '', 'right': '' },
@@ -479,7 +482,7 @@ function! LightLineModified()
 endfunction
 
 function! LightLineReadonly()
-    return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? '⭤' : ''
+    return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? '' : ''
     " non powerline
     " return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? 'x' : ''
 endfunction
@@ -496,7 +499,7 @@ endfunction
 function! LightLineFugitive()
   if exists("*fugitive#head")
     let branch = fugitive#head()
-    return branch !=# '' ? '⭠ '.branch : ''
+    return branch !=# '' ? ' '.branch : ''
     " non powerline
     " return branch
   endif
