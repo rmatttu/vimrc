@@ -1,7 +1,6 @@
 "カラー設定した後にCursorIMを定義する方法
 
-" Windows 32bit, Windows 64bit のどちらか
-if has('win32') || has ('win64')
+if has('win32') || has('win64') || has('mac')
     " Ctrl+Vの挙動を変更
     "imap <C-v> <S-Insert>
     "colorscheme desert
@@ -24,7 +23,16 @@ set guioptions-=e
 "set guioptions+=b
 set lines=40
 set columns=120
-set guifont=VL_Gothic_for_Powerline:h11:cSHIFTJIS:qDRAFT
+
+
+if has('win32') || has('win64')
+    set guifont=VL_Gothic_for_Powerline:h11:cSHIFTJIS:qDRAFT
+endif
+
+if has ('mac')
+    set guifont=Osaka-Mono:h14
+endif
+
 
 " フォントレンダリングを独自に行う
 "set renderoptions=type:directx
