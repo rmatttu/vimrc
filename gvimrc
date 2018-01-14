@@ -15,8 +15,8 @@ endif
 
 
 SM3
-" タブページを常に表示
-set showtabline=2
+" タブページ表示方法
+set showtabline=1
 " gVimでもテキストベースのタブページを使う
 set guioptions-=e
 "set guioptions+=r "scroll bar
