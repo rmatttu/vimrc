@@ -64,7 +64,6 @@ set matchpairs& matchpairs+=<:>
 " KeyMap
 noremap <ESC><ESC> :noh<ENTER>
 nnoremap gw <C-w><C-w>
-map ; :
 
 " ノーマルモードのときにF2で前のバッファ、F3で次のバッファに移動する
 map <silent>    <F2>    :bp<cr>
@@ -144,7 +143,7 @@ call dein#add('Shougo/dein.vim')
 call dein#add('fuenor/qfixhowm')
 call dein#add('tobyS/vmustache')
 call dein#add('tobyS/pdv')
-call dein#add('Shougo/neocomplete.vim', { 'rev': '77ec549' })
+call dein#add('Shougo/neocomplete.vim')
 call dein#add('Shougo/neosnippet.vim')
 call dein#add('Shougo/neosnippet-snippets')
 call dein#add('scrooloose/nerdtree')
