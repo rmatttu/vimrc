@@ -1,0 +1,37 @@
+" ---------------------------------------------------------------------------
+" vim basic settings
+"
+" スクロール時に表示をn行確保
+" 縦方向
+set scrolloff=8
+" 横方向
+set sidescrolloff=5
+
+" 画面の左右の端でスクロールが発生した場合、何文字ずつスクロールするか
+" set sidescroll=5
+
+" vimでヤンク(コピー)するとwindowsのクリップボードにも格納
+set clipboard=unnamed
+
+set autoindent
+set smartindent
+set ignorecase
+set smartcase
+
+set autoread
+set noshowmode
+
+" ---------------------------------------------------------------------------
+" key map
+"
+nnoremap gw <C-w><C-w>
+inoremap jj <Esc>
+
+inoremap <ESC> <ESC>:set iminsert=0<CR>
+
+
+" ---------------------------------------------------------------------------
+" Add-on
+"
+set surround
+
