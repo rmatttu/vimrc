@@ -11,8 +11,8 @@ rm -f installer.sh
 
 
 # setting my vim
-cp gvimrc ~/.gvimrc
-cp vimrc ~/.vimrc
+cp .gvimrc ~/
+cp .vimrc ~/
 cp -r snip ~/.vim/
 mkdir ~/.vim/tmp
 
