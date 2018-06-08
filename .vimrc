@@ -185,6 +185,7 @@ call dein#add('heavenshell/vim-pydocstring')
 
 call dein#add('tacroe/unite-mark')
 call dein#add('jacquesbh/vim-showmarks')
+call dein#add('sk1418/HowMuch')
 "---------------------------------------------
 
 
