@@ -10,7 +10,8 @@ pushd %0\..
 cls
 
 rem vim設定ファイルコピー
-xcopy .vim %USERPROFILE%\
+mkdir %USERPROFILE%\.vim
+xcopy .vim %USERPROFILE%\.vim\ /I /D
 copy .vimrc %USERPROFILE%\
 copy .gvimrc %USERPROFILE%\
 copy .ideavimrc %USERPROFILE%\

@@ -1,17 +1,20 @@
 " プラグインが実際にインストールされるディレクトリ
-let g:dein_dir = expand('~/.vim/dein')
+let g:dein_dir = expand('~/.vim/dein.vim')
 " dein.vim 本体
 let s:dein_repo_dir = g:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
-" dein.vim がなければ github から落としてくる
 if &runtimepath !~# '/dein.vim'
   if !isdirectory(s:dein_repo_dir)
     execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
   endif
-  execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
+
+  if has('win32') || has('win64')
+    set runtimepath+=~/.vim/dein.vim/repos/github.com/Shougo/dein.vim
+  else
+    execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
+  endif
 endif
 
-" 設定開始
 if dein#load_state(g:dein_dir)
   call dein#begin(g:dein_dir)
   let s:toml      = '~/.vim/dein.toml'
@@ -20,12 +23,10 @@ if dein#load_state(g:dein_dir)
   call dein#load_toml(s:toml,      {'lazy': 0})
   call dein#load_toml(s:lazy_toml, {'lazy': 1})
 
-  " 設定終了
   call dein#end()
   call dein#save_state()
 endif
 
-" もし、未インストールものものがあったらインストール
 if dein#check_install()
   call dein#install()
 endif
@@ -67,7 +68,6 @@ set laststatus=2
 syntax on
 autocmd QuickFixCmdPost *grep* cwindow
 
-" Unix 用設定
 if has('unix')
     set backspace=indent,eol,start
     set viminfo='100,<50,s10,h,rA:,rB:
