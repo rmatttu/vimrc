@@ -9,17 +9,13 @@ rem このバッチが存在するフォルダをカレントに
 pushd %0\..
 cls
 
-rem dein.vimインストール
-mkdir %USERPROFILE%\.vim\
-git clone https://github.com/Shougo/dein.vim.git %USERPROFILE%\.vim\dein.vim\repos\github.com\Shougo\dein.vim\
-
 rem vim設定ファイルコピー
+xcopy .vim %USERPROFILE%\
 copy .vimrc %USERPROFILE%\
 copy .gvimrc %USERPROFILE%\
 copy .ideavimrc %USERPROFILE%\
 copy .vsvimrc %USERPROFILE%\
-xcopy snip %USERPROFILE%\.vim\snip\
+mkdir %USERPROFILE%\.vim\tmp
 
 pause
-
 
