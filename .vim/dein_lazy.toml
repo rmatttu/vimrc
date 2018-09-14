@@ -1,7 +1,8 @@
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'
 on_i = 1
-hook_add = '''
+if = 'has("lua")'
+hook_source = '''
     let g:acp_enableAtStartup = 0
     " Use neocomplete.
     let g:neocomplete#enable_at_startup = 1
@@ -75,7 +76,7 @@ hook_add = '''
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
-hook_add = '''
+hook_source = '''
     imap <C-k>     <Plug>(neosnippet_expand_or_jump)
     smap <C-k>     <Plug>(neosnippet_expand_or_jump)
     xmap <C-k>     <Plug>(neosnippet_expand_target)
@@ -111,7 +112,7 @@ repo = 'Shougo/neomru.vim'
 repo = 'Shougo/unite.vim'
 on_i = 1
 depends = ['neomru.vim']
-hook_add = '''
+hook_source = '''
     let g:unite_enable_start_insert=1
     " バッファ一覧
     " noremap <C-P> :Unite buffer<CR>
@@ -140,7 +141,7 @@ hook_add = '''
 
 [[plugins]]
 repo = 'tpope/vim-surround'
-on_i = 1
+on_path = '.*'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
@@ -149,7 +150,7 @@ on_i = 1
 [[plugins]]
 repo = 'junegunn/vim-easy-align'
 on_i = 1
-hook_add = '''
+hook_source = '''
     " Start interactive EasyAlign in visual mode (e.g. vipga)
     xmap ga <Plug>(EasyAlign)
 
@@ -160,46 +161,20 @@ hook_add = '''
 [[plugins]]
 repo = 'terryma/vim-multiple-cursors'
 on_i = 1
-hook_add = '''
+hook_source = '''
     let g:multi_cursor_use_default_mapping=1
 '''
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
-on_i = 1
+on_path = '.*'
 
 [[plugins]]
 repo = 'tyru/caw.vim.git'
-on_i = 1
-hook_add = '''
+on_path = '.*'
+hook_source = '''
     nmap <Leader>/ <Plug>(caw:hatpos:toggle)
     vmap <Leader>/ <Plug>(caw:hatpos:toggle)
-'''
-
-[[plugins]]
-repo = 'nathanaelkane/vim-indent-guides.git'
-on_if = "has('gui_running')"
-hook_add = '''
-    let g:indent_guides_enable_on_vim_startup=1
-    let g:indent_guides_start_level=2
-    "let g:indent_guides_auto_colors=0
-    "autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#161616 ctermbg=gray
-    "autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#4f4f4f ctermbg=darkgray
-    let g:indent_guides_color_change_percent = 5
-    let g:indent_guides_guide_size = 1
-'''
-
-[[plugins]]
-repo = 'Yggdroot/indentLine'
-on_if = "!has('gui_running')"
-hook_add = '''
-    let g:indentLine_enabled = 1
-    " let g:indentLine_setColors = 0
-    let g:indentLine_color_term = 239
-    let g:indentLine_char = '|'
-    " let g:indentLine_concealcursor = '.'
-    " let g:indentLine_conceallevel = 2
-    " let g:indentLine_setConceal = 0
 '''
 
 [[plugins]]
@@ -209,7 +184,7 @@ on_ft = ['textile']
 [[plugins]]
 repo = 'dhruvasagar/vim-table-mode'
 on_ft = ['markdown', 'mkd', 'md']
-hook_add = '''
+hook_source = '''
     function! s:isAtStartOfLine(mapping)
       let text_before_cursor = getline('.')[0 : col('.')-1]
       let mapping_pattern = '\V' . escape(a:mapping, '\')
@@ -230,19 +205,21 @@ hook_add = '''
 [[plugins]]
 repo = 'plasticboy/vim-markdown'
 on_ft = ['markdown', 'mkd', 'md']
-hook_add = '''
+hook_source = '''
     let g:vim_markdown_folding_disabled = 1
     let g:vim_markdown_conceal = 0
 '''
 
 [[plugins]]
 repo = 'tyru/open-browser.vim'
+on_ft = ['markdown', 'mkd', 'md']
 
 [[plugins]]
 repo = 'kannokanno/previm'
+on_ft = ['markdown', 'mkd', 'md']
 on_cmd = 'PrevimOpen'
 depends = 'open-browser.vim'
-hook_add = '''
+hook_source = '''
     " *.mdファイルをmarkdownとみなす
     augroup PrevimSettings
         autocmd!
