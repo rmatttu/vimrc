@@ -149,7 +149,7 @@ repo = 'mattn/sonictemplate-vim'
 
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides.git'
-if = "has('gui_running')"
+if = 'has("gui_running")'
 hook_add = '''
     let g:indent_guides_enable_on_vim_startup=1
     let g:indent_guides_start_level=2
@@ -162,7 +162,7 @@ hook_add = '''
 
 [[plugins]]
 repo = 'Yggdroot/indentLine'
-if = "!has('gui_running')"
+if = '!has("gui_running")'
 hook_add = '''
     let g:indentLine_enabled = 1
     " let g:indentLine_setColors = 0
