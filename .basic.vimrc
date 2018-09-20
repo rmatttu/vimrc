@@ -12,7 +12,7 @@ set scrolloff=8
 set sidescrolloff=5
 set sidescroll=5
 
-" textwidth‚ªã‘‚©‚ê‚Ä‚µ‚Ü‚¤‚ç‚µ‚¢
+" textwidthãŒä¸Šæ›¸ã‹ã‚Œã¦ã—ã¾ã†ã‚‰ã—ã„
 autocmd FileType text setlocal textwidth=0
 
 set encoding=utf-8
@@ -39,7 +39,7 @@ if has('unix')
     set viminfo='100,<50,s10,h,rA:,rB:
 endif
 
-" ‘Î‰Š‡ŒÊ‚É'<'‚Æ'>'‚ÌƒyƒA‚ğ’Ç‰Á
+" å¯¾å¿œæ‹¬å¼§ã«'<'ã¨'>'ã®ãƒšã‚¢ã‚’è¿½åŠ 
 set matchpairs& matchpairs+=<:>
 " }}}
 
@@ -48,7 +48,7 @@ set matchpairs& matchpairs+=<:>
 noremap <ESC><ESC> :noh<ENTER>
 nnoremap gw <C-w><C-w>
 
-" ƒm[ƒ}ƒ‹ƒ‚[ƒh‚Ì‚Æ‚«‚ÉF2‚Å‘O‚Ìƒoƒbƒtƒ@AF3‚ÅŸ‚Ìƒoƒbƒtƒ@‚ÉˆÚ“®‚·‚é
+" ãƒãƒ¼ãƒãƒ«ãƒ¢ãƒ¼ãƒ‰ã®ã¨ãã«F2ã§å‰ã®ãƒãƒƒãƒ•ã‚¡ã€F3ã§æ¬¡ã®ãƒãƒƒãƒ•ã‚¡ã«ç§»å‹•ã™ã‚‹
 map <silent>    <F2>    :bp<cr>
 map <silent>    <F3>    :bn<cr>
 
@@ -57,7 +57,7 @@ inoremap jj <Esc>
 nmap <Space> <Leader>
 vmap <Space> <Leader>
 
-" 80s–Ú‚Éü‚ğˆø‚­İ’è
+" 80è¡Œç›®ã«ç·šã‚’å¼•ãè¨­å®š
 nmap <Leader>l :execute "set colorcolumn=" . join(range(81, 9999), ',')<CR>
 nmap <Leader>k :set colorcolumn=<CR>
 " }}}
