@@ -1,9 +1,9 @@
 " Settings {{{
 set clipboard=unnamed
 
-" set noswapfile
 set directory=~/.vim/tmp
 set backupdir=~/.vim/tmp
+set noswapfile
 set noundofile
 set nowritebackup
 set nobackup
