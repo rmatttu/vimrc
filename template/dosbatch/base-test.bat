@@ -12,10 +12,20 @@ REM
 REM -------------------------------------
 REM Script
 REM
+
 cd /d %~dp0
+
+
+if not %errorlevel% == 0 (
+pause
+)
 
 
 REM -------------------------------------
 REM Goto Function
 REM
+
+
+
+REM vim: set fenc=cp932 ff=dos nomodified:
 
