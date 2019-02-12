@@ -1,6 +1,13 @@
 " win, kaoriya-vimのpowerline文字化け対策（dein.tomlがshift-jisで読まれてしまう？）
 set encoding=utf-8
 
+" Powerline
+if has('win32') || has('win64')
+    let g:powerline_enable = 1
+else
+    let g:powerline_enable = 0
+endif
+
 " プラグインが実際にインストールされるディレクトリ
 let g:dein_dir = expand('~/.vim/dein.vim')
 " dein.vim 本体

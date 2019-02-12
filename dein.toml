@@ -21,6 +21,13 @@ repo = 'altercation/vim-colors-solarized.git'
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = '''
+    let g:powerline_char_readonly           = g:powerline_enable ? '' : 'x'
+    let g:powerline_char_branch             = g:powerline_enable ? '' : ''
+    let g:powerline_char_separator_left     = g:powerline_enable ? "\ue0b0" : ''
+    let g:powerline_char_separator_right    = g:powerline_enable ? "\ue0b2": ''
+    let g:powerline_char_subseparator_left  = g:powerline_enable ? "\ue0b1": '|'
+    let g:powerline_char_subseparator_right = g:powerline_enable ? "\ue0b3": '|'
+
     let g:lightline = {
         \ 'colorscheme': 'powerline',
         \ 'mode_map': { 'c': 'NORMAL' },
@@ -40,21 +47,16 @@ hook_add = '''
         \   'fileencoding': 'LightLineFileencoding',
         \   'mode': 'LightLineMode',
         \ },
-        \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
-        \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
+        \ 'separator': { 'left': g:powerline_char_separator_left, 'right': g:powerline_char_separator_right },
+        \ 'subseparator': { 'left': g:powerline_char_subseparator_left, 'right': g:powerline_char_subseparator_right }
         \ }
-    " non powerline
-    " \ 'separator': { 'left': '', 'right': '' },
-    " \ 'subseparator': { 'left': '|', 'right': '|' }
 
     function! LightLineModified()
         return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
     endfunction
 
     function! LightLineReadonly()
-        return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? '' : ''
-        " non powerline
-        " return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? 'x' : ''
+        return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? g:powerline_char_readonly : ''
     endfunction
 
     function! LightLineFilename()
@@ -69,9 +71,7 @@ hook_add = '''
     function! LightLineFugitive()
       if exists("*fugitive#head")
         let branch = fugitive#head()
-        return branch !=# '' ? ' '.branch : ''
-        " non powerline
-        " return branch
+        return branch !=# '' ? g:powerline_char_branch . branch : ''
       endif
       return ''
     endfunction
