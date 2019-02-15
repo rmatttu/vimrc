@@ -111,12 +111,9 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'scrooloose/nerdtree'
+repo = 'Shougo/vimfiler'
 hook_add = '''
-    let g:NERDTreeShowBookmarks=1
-    let NERDTreeShowHidden = 1
-    "auto close if the only open a NERDTree
-    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+    let g:vimfiler_as_default_explorer = 1
 '''
 
 [[plugins]]
