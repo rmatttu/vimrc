@@ -7,14 +7,14 @@ if has('mac')
     " colorscheme pencil
     " let g:pencil_neutral_code_bg = 1
 
-    " set background=dark
-    " colorscheme badwolf
+    set background=dark
+    colorscheme badwolf
 
     " set termguicolors
     " colorscheme one
 
-    colorscheme solarized
-    set background=light
+    " colorscheme solarized
+    " set background=light
 endif
 
 " IME
