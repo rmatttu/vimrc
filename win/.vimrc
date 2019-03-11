@@ -3,4 +3,3 @@ if has('gui_running')
     source $HOME/.vim/dein.vimrc
 end
 source $HOME/.vim/basic.vimrc
-EOT
