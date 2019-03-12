@@ -169,11 +169,13 @@ hook_source = '''
 '''
 
 [[plugins]]
-repo = 'plasticboy/vim-markdown'
+repo = 'tpope/vim-markdown'
 on_ft = ['markdown', 'mkd', 'md']
 hook_source = '''
-    let g:vim_markdown_folding_disabled = 1
-    let g:vim_markdown_conceal = 0
+    autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+    let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
+    let g:markdown_syntax_conceal = 0
+    let g:markdown_minlines = 100
 '''
 
 [[plugins]]
@@ -198,30 +200,4 @@ hook_source = '''
 [[plugins]]
 repo = 'sk1418/HowMuch'
 on_i = 1
-
-
-# 保留 {{{
-# php用
-# [[plugins]]
-# repo = 'tobyS/vmustache'
-#
-# [[plugins]]
-# repo = 'tobyS/pdv'
-# depends = ['vmustache']
-# hook_add = '''
-#     " snip用はうまく動かない（tab移動できなかった）
-#     " let g:pdv_template_dir = $HOME ."/.vim/dein.vim/repos/github.com/tobyS/pdv/templates_snip"
-#     let g:pdv_template_dir = g:dein_dir ."/repos/github.com/tobyS/pdv/templates"
-#     autocmd FileType php nnoremap <Leader>p :call pdv#DocumentCurrentLine()<CR>
-# '''
-
-# repo = 'nvie/vim-flake8'
-# repo = 'heavenshell/vim-jsdoc'
-# repo = 'mattn/sonictemplate-vim'
-
-# "--------------------------------------------- test
-# repo = 'heavenshell/vim-pydocstring'
-# repo = 'tacroe/unite-mark'
-# repo = 'jacquesbh/vim-showmarks'
-# }}}
 
