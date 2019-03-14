@@ -27,5 +27,5 @@ set noshowmode
 inoremap jj <Esc>
 nnoremap tr :vsc View.SolutionExplorer<CR>
 nnoremap tf :vsc SolutionExplorer.SyncWithActiveDocument<CR>
-nnoremap gw <C-a><C-a>
+nnoremap gw <C-w><C-w>
 
