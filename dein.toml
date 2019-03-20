@@ -188,3 +188,9 @@ hook_add = '''
     " let g:indentLine_setConceal = 0
 '''
 
+[[plugins]]
+repo = 'rmatttu/vim-uwsc'
+hook_add = '''
+    autocmd BufNewFile,BufReadPost *.uws set filetype=uwsc
+'''
+
