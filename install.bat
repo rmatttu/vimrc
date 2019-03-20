@@ -7,9 +7,10 @@ cls
 mkdir tmp
 
 rem vim設定ファイル作成
-( echo source ~/.vim/ideavimrc ) > %USERPROFILE%\.ideavimrc
-( echo source ~/.vim/vsvimrc ) > %USERPROFILE%\.vsvimrc
-( echo source $HOME/.vim/gvimrc ) > %USERPROFILE%\.gvimrc
+rem TODO ~/と$HOMEで違いがあるか
+(echo source ~/.vim/ideavimrc) > %USERPROFILE%\.ideavimrc
+(echo source ~/.vim/vsvimrc) > %USERPROFILE%\.vsvimrc
+(echo source $HOME/.vim/gvimrc) > %USERPROFILE%\.gvimrc
 (
     echo." Git for windowsのbashでvimを起動したときはdeinを呼びたくない
     echo.if has^('gui_running'^)
