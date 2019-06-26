@@ -1,20 +1,20 @@
 " Colorscheme
 if has('win32') || has('win64')
-    colorscheme badwolf
+  colorscheme badwolf
 endif
 
 if has('mac')
-    " colorscheme pencil
-    " let g:pencil_neutral_code_bg = 1
+  " colorscheme pencil
+  " let g:pencil_neutral_code_bg = 1
 
-    set background=dark
-    colorscheme badwolf
+  set background=dark
+  colorscheme badwolf
 
-    " set termguicolors
-    " colorscheme one
+  " set termguicolors
+  " colorscheme one
 
-    " colorscheme solarized
-    " set background=light
+  " colorscheme solarized
+  " set background=light
 endif
 
 " IME
@@ -32,10 +32,10 @@ set columns=120
 
 " Font
 if has('win32') || has('win64')
-    set guifont=VL_Gothic_for_Powerline:h11:cSHIFTJIS:qDRAFT
+  set guifont=VL_Gothic_for_Powerline:h11:cSHIFTJIS:qDRAFT
 endif
 
 if has ('mac')
-    set guifont=Osaka-Mono:h12
+  set guifont=Osaka-Mono:h12
 endif
 

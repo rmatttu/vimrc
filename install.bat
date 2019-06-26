@@ -7,7 +7,6 @@ cls
 mkdir tmp
 
 rem vimÝ’èƒtƒ@ƒCƒ‹ì¬
-rem TODO ~/‚Æ$HOME‚Åˆá‚¢‚ª‚ ‚é‚©
 (echo source ~/.vim/ideavimrc) > %USERPROFILE%\.ideavimrc
 (echo source ~/.vim/vsvimrc) > %USERPROFILE%\.vsvimrc
 (echo source ~/.vim/.gvimrc) > %USERPROFILE%\.gvimrc

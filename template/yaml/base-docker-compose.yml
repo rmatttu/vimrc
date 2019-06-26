@@ -1,26 +1,26 @@
 version: "3"
 services:
-    {{_expr_:expand("%:p:h:t")}}:
-        image: {{_cursor_}}
-        container_name: {{_expr_:expand("%:p:h:t")}}
-        # network_mode: "host"
-        environment:
-            - SAMPLE_USER=user
-        ports:
-            # - "host:guest"
-            - "80:80"
-            - "5900:5900"
-        volumes:
-            - ./share:/mnt/share
-            - ${HOME}/dir:/root/dir
-        command: "/run.sh  \
-                  --args 1 2 3"
-    build_sample:
-        container_name: build_sample
-        build:
-            context: ./my_Dockerfile_dir/
-            dockerfile: Dockerfile
-            # tty: true
-            # privileged: true
-            # mem_limit: "1024m"
+  {{_expr_:expand("%:p:h:t")}}:
+    image: {{_cursor_}}
+    container_name: {{_expr_:expand("%:p:h:t")}}
+    # network_mode: "host"
+    environment:
+      - SAMPLE_USER=user
+    ports:
+      # - "host:guest"
+      - "80:80"
+      - "5900:5900"
+    volumes:
+      - ./share:/mnt/share
+      - ${HOME}/dir:/root/dir
+    command: "/run.sh  \
+          --args 1 2 3"
+  build_sample:
+    container_name: build_sample
+    build:
+      context: ./my_Dockerfile_dir/
+      dockerfile: Dockerfile
+      # tty: true
+      # privileged: true
+      # mem_limit: "1024m"
 

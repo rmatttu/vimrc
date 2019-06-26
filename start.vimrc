@@ -1,24 +1,18 @@
-" win, kaoriya-vimのpowerline文字化け対策（dein.tomlがshift-jisで読まれてしまう？）
-set encoding=utf-8
-
-" Powerline
-if has('win32') || has('win64')
-    let g:powerline_enable = 1
-else
-    let g:powerline_enable = 0
-endif
-
-
 """ normal
 
 " itchyny/lightline.vim
+" Powerline
+if has('win32') || has('win64')
+  let g:powerline_enable = 1
+else
+  let g:powerline_enable = 0
+endif
 let g:powerline_char_readonly           = g:powerline_enable ? '' : 'x'
 let g:powerline_char_branch             = g:powerline_enable ? '' : ''
 let g:powerline_char_separator_left     = g:powerline_enable ? "\ue0b0" : ''
 let g:powerline_char_separator_right    = g:powerline_enable ? "\ue0b2": ''
 let g:powerline_char_subseparator_left  = g:powerline_enable ? "\ue0b1": '|'
 let g:powerline_char_subseparator_right = g:powerline_enable ? "\ue0b3": '|'
-
 let g:lightline = {
   \ 'colorscheme': 'powerline',
   \ 'mode_map': { 'c': 'NORMAL' },
@@ -41,15 +35,12 @@ let g:lightline = {
   \ 'separator': { 'left': g:powerline_char_separator_left, 'right': g:powerline_char_separator_right },
   \ 'subseparator': { 'left': g:powerline_char_subseparator_left, 'right': g:powerline_char_subseparator_right }
   \ }
-
 function! LightLineModified()
   return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
 endfunction
-
 function! LightLineReadonly()
   return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? g:powerline_char_readonly : ''
 endfunction
-
 function! LightLineFilename()
   return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
     \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
@@ -58,31 +49,25 @@ function! LightLineFilename()
     \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
     \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
 endfunction
-
 function! LightLineFugitive()
 if exists("*fugitive#head")
   let branch = fugitive#head()
   return branch !=# '' ? g:powerline_char_branch . branch : ''
 endif
-return ''
+  return ''
 endfunction
-
 function! LightLineFileformat()
   return winwidth(0) > 70 ? &fileformat : ''
 endfunction
-
 function! LightLineFiletype()
   return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
 endfunction
-
 function! LightLineFileencoding()
   return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
 endfunction
-
 function! LightLineMode()
   return winwidth(0) > 60 ? lightline#mode() : ''
 endfunction
-
 " power line font sample
 "let g:airline_left_sep = ''
 "let g:airline_left_alt_sep = ''
@@ -107,7 +92,6 @@ noremap tb :Unite buffer<CR>
 " 最近使ったファイルの一覧
 "noremap <C-Z> :Unite file_mru<CR>
 noremap tz :Unite file_mru<CR>
-
 " ウィンドウを分割して開く
 au FileType unite nnoremap <silent> <buffer> <expr> <C-J> unite#do_action('split')
 au FileType unite inoremap <silent> <buffer> <expr> <C-J> unite#do_action('split')
@@ -147,20 +131,20 @@ let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
 " Define dictionary.
 let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-    \ }
+  \ 'default' : '',
+  \ 'vimshell' : $HOME.'/.vimshell_hist',
+  \ 'scheme' : $HOME.'/.gosh_completions'
+  \ }
 
 " Define keyword.
 if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
+  let g:neocomplete#keyword_patterns = {}
 endif
 let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
 " Plugin key-mappings.
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
+inoremap <expr><C-g> neocomplete#undo_completion()
+inoremap <expr><C-l> neocomplete#complete_common_string()
 
 " Recommended key-mappings.
 " <CR>: close popup and save indent.
@@ -171,7 +155,7 @@ function! s:my_cr_function()
   "return pumvisible() ? "\<C-y>" : "\<CR>"
 endfunction
 " <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
@@ -185,7 +169,7 @@ inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 "set completeopt+=longest
 "let g:neocomplete#enable_auto_select = 1
 "let g:neocomplete#disable_auto_complete = 1
-"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+"inoremap <expr><TAB> pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -207,17 +191,17 @@ endif
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 " Shougo/neosnippet-snippets
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
 
 " SuperTab like snippets behavior.
 imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: pumvisible() ? "\<C-n>" : "\<TAB>"
+  \ "\<Plug>(neosnippet_expand_or_jump)"
+  \: pumvisible() ? "\<C-n>" : "\<TAB>"
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: "\<TAB>"
+  \ "\<Plug>(neosnippet_expand_or_jump)"
+  \: "\<TAB>"
 
 " For snippet_complete marker.
 if has('conceal')
@@ -252,11 +236,11 @@ function! s:isAtStartOfLine(mapping)
 endfunction
 
 inoreabbrev <expr> <bar><bar>
-          \ <SID>isAtStartOfLine('\|\|') ?
-          \ '<c-o>:TableModeEnable<cr><bar><space><bar><left><left>' : '<bar><bar>'
+  \ <SID>isAtStartOfLine('\|\|') ?
+  \ '<c-o>:TableModeEnable<cr><bar><space><bar><left><left>' : '<bar><bar>'
 inoreabbrev <expr> __
-          \ <SID>isAtStartOfLine('__') ?
-          \ '<c-o>:silent! TableModeDisable<cr>' : '__'
+  \ <SID>isAtStartOfLine('__') ?
+  \ '<c-o>:silent! TableModeDisable<cr>' : '__'
 
 let g:table_mode_corner='|'
 
@@ -269,8 +253,8 @@ let g:markdown_minlines = 100
 " kannokanno/previm
 " *.mdファイルをmarkdownとみなす
 augroup PrevimSettings
-    autocmd!
-    autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+  autocmd!
+  autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 augroup END
 
 nnoremap <Leader>o :PrevimOpen<CR>
