@@ -3,11 +3,10 @@
 mkdir -p tmp
 
 cat << EOT > ~/.vimrc
-source \$HOME/.vim/dein.vimrc
-source \$HOME/.vim/basic.vimrc
+source \$HOME/.vim/.vimrc
 EOT
 
 cat << EOT > ~/.gvimrc
-source \$HOME/.vim/gvimrc
+source \$HOME/.vim/.gvimrc
 EOT
 
