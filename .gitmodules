@@ -1,0 +1,84 @@
+[submodule "pack/default/start/badwolf"]
+	path = pack/default/start/badwolf
+	url = https://github.com/sjl/badwolf.git
+[submodule "pack/default/start/vim-colors-solarized"]
+	path = pack/default/start/vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule "pack/default/start/lightline.vim"]
+	path = pack/default/start/lightline.vim
+	url = https://github.com/itchyny/lightline.vim.git
+[submodule "pack/default/start/qfixhowm"]
+	path = pack/default/start/qfixhowm
+	url = https://github.com/fuenor/qfixhowm.git
+[submodule "pack/default/start/neomru.vim"]
+	path = pack/default/start/neomru.vim
+	url = https://github.com/Shougo/neomru.vim.git
+[submodule "pack/default/start/unite.vim"]
+	path = pack/default/start/unite.vim
+	url = https://github.com/Shougo/unite.vim.git
+[submodule "pack/default/start/vimfiler"]
+	path = pack/default/start/vimfiler
+	url = https://github.com/Shougo/vimfiler.git
+[submodule "pack/default/start/vim-brightest"]
+	path = pack/default/start/vim-brightest
+	url = https://github.com/osyo-manga/vim-brightest.git
+[submodule "pack/default/start/vim-trailing-whitespace"]
+	path = pack/default/start/vim-trailing-whitespace
+	url = https://github.com/bronson/vim-trailing-whitespace.git
+[submodule "pack/default/start/sonictemplate-vim"]
+	path = pack/default/start/sonictemplate-vim
+	url = https://github.com/mattn/sonictemplate-vim.git
+[submodule "pack/default/start/vim-uwsc"]
+	path = pack/default/start/vim-uwsc
+	url = https://github.com/rmatttu/vim-uwsc.git
+[submodule "pack/default/start/neocomplete.vim"]
+	path = pack/default/start/neocomplete.vim
+	url = https://github.com/Shougo/neocomplete.vim.git
+[submodule "pack/default/start/neosnippet-snippets"]
+	path = pack/default/start/neosnippet-snippets
+	url = https://github.com/Shougo/neosnippet-snippets.git
+[submodule "pack/default/start/neosnippet.vim"]
+	path = pack/default/start/neosnippet.vim
+	url = https://github.com/Shougo/neosnippet.vim.git
+[submodule "pack/default/start/vim-surround"]
+	path = pack/default/start/vim-surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "pack/default/start/vim-fugitive"]
+	path = pack/default/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "pack/default/start/vim-easy-align"]
+	path = pack/default/start/vim-easy-align
+	url = https://github.com/junegunn/vim-easy-align.git
+[submodule "pack/default/start/vim-multiple-cursors"]
+	path = pack/default/start/vim-multiple-cursors
+	url = https://github.com/terryma/vim-multiple-cursors.git
+[submodule "pack/default/start/vim-gitgutter"]
+	path = pack/default/start/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
+[submodule "pack/default/start/caw.vim"]
+	path = pack/default/start/caw.vim
+	url = https://github.com/tyru/caw.vim.git
+[submodule "pack/default/start/vim-textile"]
+	path = pack/default/start/vim-textile
+	url = https://github.com/amiorin/vim-textile.git
+[submodule "pack/default/start/vim-table-mode"]
+	path = pack/default/start/vim-table-mode
+	url = https://github.com/dhruvasagar/vim-table-mode.git
+[submodule "pack/default/start/vim-markdown"]
+	path = pack/default/start/vim-markdown
+	url = https://github.com/tpope/vim-markdown.git
+[submodule "pack/default/start/open-browser.vim"]
+	path = pack/default/start/open-browser.vim
+	url = https://github.com/tyru/open-browser.vim.git
+[submodule "pack/default/start/previm"]
+	path = pack/default/start/previm
+	url = https://github.com/kannokanno/previm.git
+[submodule "pack/default/start/HowMuch"]
+	path = pack/default/start/HowMuch
+	url = https://github.com/sk1418/HowMuch.git
+[submodule "pack/default/opt/vim-indent-guides"]
+	path = pack/default/opt/vim-indent-guides
+	url = https://github.com/nathanaelkane/vim-indent-guides.git
+[submodule "pack/default/opt/indentLine"]
+	path = pack/default/opt/indentLine
+	url = https://github.com/Yggdroot/indentLine.git
