@@ -4,6 +4,21 @@
 
 ## Install
 
+```bash
+cd ~/
+git clone --recursive https://github.com/rmatttu/vimrc.git .vim
+```
+
+or
+
+```bash
+cd ~/
+git clone https://github.com/rmatttu/vimrc.git .vim
+cd .vim
+git submodule init
+git submodule update
+```
+
 Mac/linux
 
 ```bash
