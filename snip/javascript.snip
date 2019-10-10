@@ -1,6 +1,16 @@
 snippet async block
 abbr async block
-options word
+options head
 	;(async () => {
 		${1}
 	})();
+
+snippet promise block
+abbr Promise block
+options head
+	new Promise((resolve, reject) => {
+		${1};
+		resolve(${2});
+		reject(${3});
+	}
+
