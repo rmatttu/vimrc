@@ -5,6 +5,7 @@
 
 
 # Main script
+cd `dirname $0`
 start_time=`date +%s`
 
 ### 時間測定したい処理

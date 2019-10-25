@@ -1,8 +1,7 @@
 version: "3"
 services:
-  {{_expr_:expand("%:p:h:t")}}:
-    image: {{_cursor_}}
-    container_name: {{_expr_:expand("%:p:h:t")}}
+  app:
+    image: ubuntu:18.04{{_cursor_}}
     # network_mode: "host"
     environment:
       - SAMPLE_USER=user
@@ -13,10 +12,11 @@ services:
     volumes:
       - ./share:/mnt/share
       - ${HOME}/dir:/root/dir
-    command: "/run.sh  \
-          --args 1 2 3"
-  build_sample:
-    container_name: build_sample
+    command: "tail  \
+          -f \
+          /dev/null"
+  {{_expr_:expand("%:p:h:t")}}:
+    # container_name: build_sample
     build:
       context: ./my_Dockerfile_dir/
       dockerfile: Dockerfile
