@@ -11,14 +11,16 @@ REM Script
 REM ===
 cd /d %~dp0
 {{_cursor_}}
+call :raise_error
 
-if not %errorlevel% == 0 (
-pause
-)
+if not %errorlevel% == 0 (echo Error & pause)
 
 
 REM Goto Function
 REM ===
+:raise_error
+  exit /b 1
+
 :log_error
   if %errorlevel% == 0 (
     echo "ok"
