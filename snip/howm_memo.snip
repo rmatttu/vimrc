@@ -13,3 +13,13 @@ abbr filetype markdown
 options word
 	<!-- vim: set filetype=markdown tabstop=4 shiftwidth=4: -->
 
+snippet mail
+abbr mail --- 件名: 本文:
+options head
+	----
+	件名: ${1}
+	本文:
+	${2}
+	---
+
+
