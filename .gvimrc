@@ -32,7 +32,7 @@ set columns=120
 
 " Font
 if has('win32') || has('win64')
-  set guifont=VL_Gothic_for_Powerline:h11:cSHIFTJIS:qDRAFT
+  set guifont=Cica:h11:cSHIFTJIS:qDRAFT
 endif
 
 if has ('mac')
