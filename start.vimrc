@@ -81,6 +81,7 @@ endfunction
 let howm_dir = $HOME.'/.vim/howm'
 let QFixHowm_ListCloseOnJump = 1
 let QFixHowm_Folding = 0
+let howm_filename = '%Y-%m-%d-%H%M%S.txt'
 
 " Shougo/unite.vim
 let g:unite_enable_start_insert=1
