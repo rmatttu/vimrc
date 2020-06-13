@@ -8,7 +8,6 @@
 cd ~/
 git clone https://github.com/rmatttu/vimrc.git .vim
 cd .vim
-git checkout vim8
 git submodule init
 git submodule update
 ```
