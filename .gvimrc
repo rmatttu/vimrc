@@ -29,6 +29,8 @@ set showtabline=1
 set guioptions-=e
 set lines=40
 set columns=120
+autocmd FocusGained * set transparency=240
+autocmd FocusLost * set transparency=220
 
 " Font
 if has('win32') || has('win64')
