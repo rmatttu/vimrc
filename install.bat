@@ -9,8 +9,8 @@ mkdir tmp
 rem vimÝ’èƒtƒ@ƒCƒ‹ì¬
 (echo source ~/.vim/ideavimrc) > %USERPROFILE%\.ideavimrc
 (echo source ~/.vim/vsvimrc) > %USERPROFILE%\.vsvimrc
-(echo source ~/.vim/.gvimrc) > %USERPROFILE%\.gvimrc
-(echo.source ~/.vim/.vimrc) > %USERPROFILE%\.vimrc
+(echo source ~/.vim/gvimrc) > %USERPROFILE%\.gvimrc
+(echo.source ~/.vim/vimrc) > %USERPROFILE%\.vimrc
 
 pause
 
