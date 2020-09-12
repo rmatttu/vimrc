@@ -55,9 +55,6 @@
 [submodule "pack/default/start/caw.vim"]
 	path = pack/default/start/caw.vim
 	url = https://github.com/tyru/caw.vim.git
-[submodule "pack/default/start/vim-textile"]
-	path = pack/default/start/vim-textile
-	url = https://github.com/amiorin/vim-textile.git
 [submodule "pack/default/start/vim-table-mode"]
 	path = pack/default/start/vim-table-mode
 	url = https://github.com/dhruvasagar/vim-table-mode.git
