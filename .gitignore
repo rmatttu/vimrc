@@ -22,12 +22,8 @@ tags
 
 # End of https://www.gitignore.io/api/vim
 
-
-tmp/
-dein.vim/
-howm/
+tmp/*
+howm/*
 howm
-
-# 下記フォルダは必要に応じて手動で管理
-snip/
-
+snip/*
+local/*
