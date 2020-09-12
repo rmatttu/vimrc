@@ -82,3 +82,12 @@
 [submodule "pack/default/opt/indentLine"]
 	path = pack/default/opt/indentLine
 	url = https://github.com/Yggdroot/indentLine.git
+[submodule "pack/default/start/deoplete.nvim"]
+	path = pack/default/start/deoplete.nvim
+	url = https://github.com/Shougo/deoplete.nvim.git
+[submodule "pack/default/start/nvim-yarp"]
+	path = pack/default/start/nvim-yarp
+	url = https://github.com/roxma/nvim-yarp.git
+[submodule "pack/default/start/vim-hug-neovim-rpc"]
+	path = pack/default/start/vim-hug-neovim-rpc
+	url = https://github.com/roxma/vim-hug-neovim-rpc.git
