@@ -10,3 +10,5 @@ cat << EOT > ~/.gvimrc
 source \$HOME/.vim/gvimrc
 EOT
 
+# deoplete.nvim
+pip3 install --user pynvim

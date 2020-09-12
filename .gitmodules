@@ -31,9 +31,6 @@
 [submodule "pack/default/start/vim-uwsc"]
 	path = pack/default/start/vim-uwsc
 	url = https://github.com/rmatttu/vim-uwsc.git
-[submodule "pack/default/start/neocomplete.vim"]
-	path = pack/default/start/neocomplete.vim
-	url = https://github.com/Shougo/neocomplete.vim.git
 [submodule "pack/default/start/neosnippet-snippets"]
 	path = pack/default/start/neosnippet-snippets
 	url = https://github.com/Shougo/neosnippet-snippets.git
