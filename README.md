@@ -24,3 +24,12 @@ Windows
 install.bat
 ```
 
+## Memo
+
+### How to add package
+
+```bash
+cd pack/default/start
+# or cd pack/default/opt
+git submodule add <some-repo-url>
+```
