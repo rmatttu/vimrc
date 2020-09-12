@@ -26,10 +26,19 @@ install.bat
 
 ## Memo
 
-### How to add package
+### How to manage package
+
+Add
 
 ```bash
 cd pack/default/start
 # or cd pack/default/opt
-git submodule add <some-repo-url>
+git submodule add <some-repo-URL>
+```
+
+Remove
+
+```bash
+git submodule deinit -f <some-repo-DIR>
+git rm -f <some-repo-DIR>
 ```
