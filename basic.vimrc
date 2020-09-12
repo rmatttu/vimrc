@@ -12,8 +12,7 @@ set scrolloff=8
 set sidescrolloff=5
 set sidescroll=5
 
-set encoding=utf-8
-set ff=unix
+set fileencodings=utf-8,cp932,euc-jp,sjis
 set ffs=unix,dos,mac
 
 set tabstop=2
