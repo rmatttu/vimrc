@@ -26,7 +26,9 @@ endif
 " Shougo/deoplete.nvim
 " Windowsかつguiのとき
 " もしくはlinuxのとき
-if ((has('win32') || has('win64')) && has('gui_running')) || has('linux')
+if ((has('win32') || has('win64')) && has('gui_running'))
+  \ || has('linux')
+  \ || (has('mac') && !has('gui_running'))
   packadd deoplete.nvim
   " let g:deoplete#enable_at_startup = 1
   call deoplete#enable()
