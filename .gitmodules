@@ -84,4 +84,4 @@
 	url = https://github.com/roxma/vim-hug-neovim-rpc.git
 [submodule "pack/default/opt/deoplete.nvim"]
 	path = pack/default/opt/deoplete.nvim
-	url = git@github.com:Shougo/deoplete.nvim.git
+	url = https://github.com/Shougo/deoplete.nvim.git
