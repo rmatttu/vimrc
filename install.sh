@@ -1,5 +1,9 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
+set -e
+set -u
+
+cd `dirname $0`
 mkdir -p tmp
 mkdir -p local/vsnip
 
