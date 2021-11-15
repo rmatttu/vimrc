@@ -14,8 +14,4 @@ rem vimÝ’èƒtƒ@ƒCƒ‹ì¬
 (echo source ~/.vim/gvimrc) > %USERPROFILE%\.gvimrc
 (echo.source ~/.vim/vimrc) > %USERPROFILE%\.vimrc
 
-rem deoplete.nvim
-pip3 install --user pynvim
-
 pause
-
