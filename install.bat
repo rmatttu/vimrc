@@ -7,6 +7,7 @@ pushd %0\..
 cls
 
 mkdir tmp
+mkdir local/vsnip
 
 rem vimÝ’èƒtƒ@ƒCƒ‹ì¬
 (echo source ~/.vim/ideavimrc) > %USERPROFILE%\.ideavimrc
