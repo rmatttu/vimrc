@@ -2,7 +2,7 @@
 
 " itchyny/lightline.vim
 " Powerline
-if has('win32') || has('win64')
+if has('win32') || has('win64') || has('mac')
   let g:powerline_enable = 1
 else
   let g:powerline_enable = 0
