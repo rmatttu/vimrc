@@ -191,14 +191,13 @@ let g:vsnip_filetypes.typescriptreact = ['typescript']
 let g:vsnip_filetypes.sh = ['shellscript']
 let g:vsnip_filetypes.yaml = ['dockercompose']
 
+let g:vsnip_snippet_dirs = [$HOME.'/.vim/local/vsnip']
 if ((has('win32') || has('win64')))
   let g:vsnip_snippet_dir=expand($HOME.'/AppData/Roaming/Code/User/snippets')
-  let g:vsnip_snippet_dirs = [$HOME.'/.vim/local/vsnip']
 endif
 if has('linux')
   " TODO Set path
 endif
 if has('mac')
   let g:vsnip_snippet_dir=expand($HOME.'/Library/Application Support/Code/User/snippets')
-  let g:vsnip_snippet_dirs = [$HOME.'/.vim/local/vsnip']
 endif
