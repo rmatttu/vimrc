@@ -18,6 +18,8 @@ jobs:
           name: set up
           command: |
               git submodule update
+              apt-get -y update
+              apt-get -y vim-gtk
               vim -c ":q"
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
