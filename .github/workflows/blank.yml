@@ -24,6 +24,8 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+        with:
+          submodules: true
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
@@ -34,3 +36,17 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+
+      - name: Remove .git dir
+        run: rm -rf .git/
+
+      - name: ls files
+        run: find -type f
+
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist-without-.git-dir
+          path: |
+            ./
+            !dist/.git/*
