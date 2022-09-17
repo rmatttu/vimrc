@@ -2,7 +2,7 @@
 
 " itchyny/lightline.vim
 " Powerline
-if has('win32') || has('win64')
+if has('win32') || has('win64') || has('mac')
   let g:powerline_enable = 1
 else
   let g:powerline_enable = 0
@@ -111,35 +111,8 @@ endfunction
 " Shougo/vimfiler
 let g:vimfiler_as_default_explorer = 1
 
-" mattn/sonictemplate-vim
-let g:sonictemplate_vim_template_dir = ['~/.vim/template']
-
 " rmatttu/vim-uwsc
 autocmd BufNewFile,BufReadPost *.uws set filetype=uwsc
-
-
-" Shougo/neosnippet-snippets
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
-
-" SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-  \ "\<Plug>(neosnippet_expand_or_jump)"
-  \: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-  \ "\<Plug>(neosnippet_expand_or_jump)"
-  \: "\<TAB>"
-
-" For snippet_complete marker.
-if has('conceal')
-  set conceallevel=2 concealcursor=i
-endif
-
-"" Enable snipMate compatibility feature.
-let g:neosnippet#enable_snipmate_compatibility = 1
-"" Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory= $HOME ."/.vim/snip"
 
 " junegunn/vim-easy-align
 " Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -187,3 +160,44 @@ augroup END
 
 nnoremap <Leader>o :PrevimOpen<CR>
 
+" hrsh7th/vim-vsnip
+" hrsh7th/vim-vsnip-integ
+" NOTE: You can use other key to expand snippet.
+" Expand
+imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+
+" Expand or jump
+imap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+smap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+
+" Jump forward or backward
+imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+
+" Select or cut text to use as $TM_SELECTED_TEXT in the next snippet.
+" See https://github.com/hrsh7th/vim-vsnip/pull/50
+nmap        s   <Plug>(vsnip-select-text)
+xmap        s   <Plug>(vsnip-select-text)
+nmap        S   <Plug>(vsnip-cut-text)
+xmap        S   <Plug>(vsnip-cut-text)
+
+" If you want to use snippet for multiple filetypes, you can `g:vsnip_filetypes` for it.
+let g:vsnip_filetypes = {}
+let g:vsnip_filetypes.javascriptreact = ['javascript']
+let g:vsnip_filetypes.typescriptreact = ['typescript']
+let g:vsnip_filetypes.sh = ['shellscript']
+let g:vsnip_filetypes.yaml = ['dockercompose']
+
+let g:vsnip_snippet_dirs = [$HOME.'/.vim/local/vsnip']
+if ((has('win32') || has('win64')))
+  let g:vsnip_snippet_dir=expand($HOME.'/AppData/Roaming/Code/User/snippets')
+endif
+if has('linux')
+  " TODO Set path
+endif
+if has('mac')
+  let g:vsnip_snippet_dir=expand($HOME.'/Library/Application Support/Code/User/snippets')
+endif

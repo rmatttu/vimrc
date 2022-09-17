@@ -38,6 +38,6 @@ if has('win32') || has('win64')
 endif
 
 if has ('mac')
-  set guifont=Osaka-Mono:h12
+  set guifont=Cica:h12
 endif
 
