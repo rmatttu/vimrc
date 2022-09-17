@@ -25,18 +25,9 @@
 [submodule "pack/default/start/vim-trailing-whitespace"]
 	path = pack/default/start/vim-trailing-whitespace
 	url = https://github.com/bronson/vim-trailing-whitespace.git
-[submodule "pack/default/start/sonictemplate-vim"]
-	path = pack/default/start/sonictemplate-vim
-	url = https://github.com/mattn/sonictemplate-vim.git
 [submodule "pack/default/start/vim-uwsc"]
 	path = pack/default/start/vim-uwsc
 	url = https://github.com/rmatttu/vim-uwsc.git
-[submodule "pack/default/start/neosnippet-snippets"]
-	path = pack/default/start/neosnippet-snippets
-	url = https://github.com/Shougo/neosnippet-snippets.git
-[submodule "pack/default/start/neosnippet.vim"]
-	path = pack/default/start/neosnippet.vim
-	url = https://github.com/Shougo/neosnippet.vim.git
 [submodule "pack/default/start/vim-surround"]
 	path = pack/default/start/vim-surround
 	url = https://github.com/tpope/vim-surround.git
@@ -76,12 +67,6 @@
 [submodule "pack/default/opt/indentLine"]
 	path = pack/default/opt/indentLine
 	url = https://github.com/Yggdroot/indentLine.git
-[submodule "pack/default/start/nvim-yarp"]
-	path = pack/default/start/nvim-yarp
-	url = https://github.com/roxma/nvim-yarp.git
-[submodule "pack/default/start/vim-hug-neovim-rpc"]
-	path = pack/default/start/vim-hug-neovim-rpc
-	url = https://github.com/roxma/vim-hug-neovim-rpc.git
-[submodule "pack/default/opt/deoplete.nvim"]
-	path = pack/default/opt/deoplete.nvim
-	url = https://github.com/Shougo/deoplete.nvim.git
+[submodule "pack/default/start/vim-vsnip"]
+	path = pack/default/start/vim-vsnip
+	url = https://github.com/hrsh7th/vim-vsnip.git

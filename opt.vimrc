@@ -22,14 +22,3 @@ if !has('gui_running')
   " let g:indentLine_conceallevel = 2
   " let g:indentLine_setConceal = 0
 endif
-
-" Shougo/deoplete.nvim
-" Windowsかつguiのとき
-" もしくはlinuxのとき
-if ((has('win32') || has('win64')) && has('gui_running'))
-  \ || has('linux')
-  \ || (has('mac') && !has('gui_running'))
-  packadd deoplete.nvim
-  " let g:deoplete#enable_at_startup = 1
-  call deoplete#enable()
-endif

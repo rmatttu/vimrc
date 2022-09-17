@@ -7,6 +7,7 @@ pushd %0\..
 cls
 
 mkdir tmp
+mkdir local/vsnip
 
 rem vim設定ファイル作成
 (echo source ~/.vim/ideavimrc) > %USERPROFILE%\.ideavimrc
@@ -14,8 +15,4 @@ rem vim設定ファイル作成
 (echo source ~/.vim/gvimrc) > %USERPROFILE%\.gvimrc
 (echo.source ~/.vim/vimrc) > %USERPROFILE%\.vimrc
 
-rem deoplete.nvim
-pip3 install --user pynvim
-
 pause
-
