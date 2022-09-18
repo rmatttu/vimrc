@@ -29,7 +29,9 @@ jobs:
         run: echo ${{ github.sha }} > Release.txt
 
       - name: Archive
-        run: tar --exclude='./.git' --exclude='./release.tar.gz' -zcvf release.tar.gz ./
+        run: |
+          touch release.tar.gz
+          tar --exclude='.git' --exclude='release.tar.gz' -zcvf release.tar.gz .
 
       - name: Release
         uses: softprops/action-gh-release@v1
