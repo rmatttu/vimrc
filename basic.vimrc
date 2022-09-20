@@ -29,6 +29,7 @@ set autoread
 set laststatus=2
 syntax on
 autocmd QuickFixCmdPost *grep* cwindow
+filetype plugin indent on
 
 if has('unix')
   set backspace=indent,eol,start
