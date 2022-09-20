@@ -21,7 +21,7 @@ if [[ -e ~/.gvimrc ]]; then
 fi
 
 (
-	cp -r ./ ~/.config/vim/
+	rsync -av --exclude='.git' ./ ~/.config/vim/
   cd ~/.config/vim
 	mkdir -p tmp
 	mkdir -p local/vsnip
