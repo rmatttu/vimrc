@@ -10,23 +10,14 @@ git clone https://github.com/rmatttu/vimrc.git .vim
 cd .vim
 git submodule init
 git submodule update
-```
-
-and...
-
-### Mac/linux
-
-```bash
 ./install.sh
 ```
 
-### Windows
-
-```bash
-install.bat
-```
-
 ## Memo
+
+### howm memo directory
+
+Please backup `~/.config/vim/howm` directory.
 
 ### How to manage package
 
