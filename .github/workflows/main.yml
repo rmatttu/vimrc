@@ -17,25 +17,40 @@ jobs:
         with:
           submodules: true
 
-      - name: Archive production artifacts
-        uses: actions/upload-artifact@v3
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         with:
-          name: dist-without-.git-dir
-          path: |
-            ./
-            !dist/.git/*
+          owner: owner
+          repo: repo
+          tag_name: ${{ env.RELEASE_VERSION }}
+          release_name: ${{ env.RELEASE_VERSION }}
+          draft: true
+          prerelease: false
+          commitish: main
 
       - name: echo HASH
         run: echo ${{ github.sha }} > Release.txt
 
-      - name: Archive
+      - name: Create assets
         run: |
           touch release.tar.gz
           tar --exclude='.git' --exclude='release.tar.gz' -zcvf release.tar.gz .
 
-      - name: Release
-        uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
+      - name: Upload assets
+        uses: actions/upload-artifact@v3
         with:
-          files: release.tar.gz
-          draft: true
+          name: release.tar.gz
+          path: release.tar.gz
+
+      - name: Upload Release Assets
+        uses: actions/upload-release-asset@v1.0.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+          asset_path: ./release.tar.gz
+          asset_name: release.tar.gz
+          asset_content_type: application/gzip
