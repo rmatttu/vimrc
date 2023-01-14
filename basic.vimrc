@@ -1,8 +1,8 @@
 " Settings {{{
 set clipboard=unnamed
 
-set directory=~/.vim/tmp
-set backupdir=~/.vim/tmp
+set directory=~/.config/vim/tmp
+set backupdir=~/.config/vim/tmp
 set noswapfile
 set noundofile
 set nowritebackup
@@ -29,6 +29,7 @@ set autoread
 set laststatus=2
 syntax on
 autocmd QuickFixCmdPost *grep* cwindow
+filetype plugin indent on
 
 if has('unix')
   set backspace=indent,eol,start
@@ -56,6 +57,14 @@ vmap <Space> <Leader>
 " 80行目に線を引く設定
 nmap <Leader>l :execute "set colorcolumn=" . join(range(81, 9999), ',')<CR>
 nmap <Leader>k :set colorcolumn=<CR>
+
+" Ref: https://vim.fandom.com/wiki/Moving_lines_up_or_down
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
 " }}}
 
 

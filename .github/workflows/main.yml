@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        with:
+          tag_name:  ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            Changes in this Release
+            - First Change
+            - Second Change
+          draft: true
+          prerelease: false
+
+      - name: echo HASH
+        run: echo ${{ github.sha }} > Release.txt
+
+      - name: Create assets
+        run: |
+          touch release.tar.gz
+          tar --exclude='.git' --exclude='release.tar.gz' -zcvf release.tar.gz .
+
+      - name: Upload assets
+        uses: actions/upload-artifact@v3
+        with:
+          name: release.tar.gz
+          path: release.tar.gz
+
+      - name: Upload Release Assets
+        uses: actions/upload-release-asset@v1.0.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+          asset_path: ./release.tar.gz
+          asset_name: release.tar.gz
+          asset_content_type: application/gzip
