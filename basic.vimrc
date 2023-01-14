@@ -57,6 +57,14 @@ vmap <Space> <Leader>
 " 80行目に線を引く設定
 nmap <Leader>l :execute "set colorcolumn=" . join(range(81, 9999), ',')<CR>
 nmap <Leader>k :set colorcolumn=<CR>
+
+" Ref: https://vim.fandom.com/wiki/Moving_lines_up_or_down
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
 " }}}
 
 
