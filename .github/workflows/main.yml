@@ -23,8 +23,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         with:
-          owner: owner
-          repo: repo
           tag_name:  ${{ github.ref }}
           release_name: Release ${{ github.ref }}
           body: |
@@ -33,7 +31,6 @@ jobs:
             - Second Change
           draft: true
           prerelease: false
-          commitish: main
 
       - name: echo HASH
         run: echo ${{ github.sha }} > Release.txt
