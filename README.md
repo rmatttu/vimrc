@@ -17,7 +17,7 @@ git submodule update
 
 ### howm memo directory
 
-Please backup `~/.config/vim/howm` directory.
+Please backup `~/.vim/howm` directory.
 
 ### How to manage package
 
