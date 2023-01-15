@@ -8,28 +8,28 @@ old_dir=~/old-config-vim-$now_text
 
 # Backup if exists
 if [[ -e ~/.vim ]]; then
-	mkdir -pv "$old_dir"
-	mv -v ~/.vim "$old_dir"
+  mkdir -pv "$old_dir"
+  mv -v ~/.vim "$old_dir"
 fi
 if [[ -e ~/.vimrc ]]; then
-	mkdir -pv "$old_dir"
-	mv -v ~/.vimrc "$old_dir"
+  mkdir -pv "$old_dir"
+  mv -v ~/.vimrc "$old_dir"
 fi
 if [[ -e ~/.gvimrc ]]; then
-	mkdir -pv "$old_dir"
-	mv -v ~/.gvimrc "$old_dir"
+  mkdir -pv "$old_dir"
+  mv -v ~/.gvimrc "$old_dir"
 fi
 
 (
-	cd "$(dirname "$0")"
-	echo "copy $(pwd)/ to ~/.vim/"
-	rsync -a \
-		--exclude ".gitignore" \
-		--exclude ".gitmodules" \
-		--exclude ".git/" \
-		--exclude ".github/" \
-		--exclude "dev-tool/" \
-		./ ~/.vim/
+  cd "$(dirname "$0")"
+  echo "copy $(pwd)/ to ~/.vim/"
+  rsync -a \
+    --exclude ".gitignore" \
+    --exclude ".gitmodules" \
+    --exclude ".git/" \
+    --exclude ".github/" \
+    --exclude "dev-tool/" \
+    ./ ~/.vim/
 )
 
 mkdir -pv ~/.vim/tmp/
