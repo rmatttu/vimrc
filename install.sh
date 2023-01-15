@@ -23,7 +23,13 @@ fi
 (
 	cd "$(dirname "$0")"
 	echo "copy $(pwd)/ to ~/.vim/"
-	rsync -a --exclude='.git' ./ ~/.vim/
+	rsync -a \
+		--exclude ".gitignore" \
+		--exclude ".gitmodules" \
+		--exclude ".git/" \
+		--exclude ".github/" \
+		--exclude "dev-tool/" \
+		./ ~/.vim/
 )
 
 mkdir -pv ~/.vim/tmp/
