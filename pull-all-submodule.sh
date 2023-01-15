@@ -1,4 +1,11 @@
 #!/usr/bin/env bash
+#
+# Usage
+# ./pull-all-submodule.sh <root_dir>
+#
+# e.g.
+# ./dev-tool/pull-all-submodule.sh .
+#
 
 set -e
 set -u
