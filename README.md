@@ -5,12 +5,8 @@
 ## Install
 
 ```bash
-cd ~/
-git clone https://github.com/rmatttu/vimrc.git .vim
-cd .vim
-git submodule init
-git submodule update
-./install.sh
+mkdir vimrc && curl -sLJ https://github.com/rmatttu/vimrc/releases/latest/download/release.tar.gz | tar zxf - -C vimrc
+./vimrc/install.sh
 ```
 
 ## Memo
