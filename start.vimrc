@@ -78,7 +78,7 @@ endfunction
 "let g:airline_symbols.linenr = ''
 
 " fuenor/qfixhowm
-let howm_dir = $HOME.'/.config/vim/howm'
+let howm_dir = $HOME.'/.vim/howm'
 let QFixHowm_ListCloseOnJump = 1
 let QFixHowm_Folding = 0
 let howm_filename = '%Y-%m-%d-%H%M%S.txt'
