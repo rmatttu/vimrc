@@ -79,6 +79,7 @@ endfunction
 
 " fuenor/qfixhowm
 let howm_dir = $HOME.'/.vim/howm'
+let qfixmemo_fileformat = 'unix'
 let QFixHowm_ListCloseOnJump = 1
 let QFixHowm_Folding = 0
 let howm_filename = '%Y-%m-%d-%H%M%S.txt'
