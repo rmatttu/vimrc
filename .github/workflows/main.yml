@@ -29,17 +29,29 @@ jobs:
             Changes in this Release
             - First Change
             - Second Change
+            **Full Changelog**: https://github.com/rmatttu/vimrc/compare/0.0.0...0.0.0
           draft: true
           prerelease: false
 
-      - name: echo HASH
-        run: echo ${{ github.sha }} > Release.txt
+      - name: Create Release.txt
+        run: |
+          (
+            printf "Git_branch\t%s\n" "$(git rev-parse --abbrev-ref HEAD)"
+            printf "Git_HEAD\t%s\n" "$(git rev-parse HEAD)"
+            printf "Git_tags\t%s\n" "$(git describe --tags)"
+          ) | tee "Release.txt"
 
       - name: Create assets
         run: |
           touch release.tar.gz
-          tar --exclude='.git' --exclude='release.tar.gz' -zcvf release.tar.gz .
-
+          tar \
+          --exclude ".gitignore" \
+          --exclude ".gitmodules" \
+          --exclude ".git/" \
+          --exclude ".github/" \
+          --exclude "dev-tool/" \
+          --exclude 'release.tar.gz' \
+          -zcvf release.tar.gz .
       - name: Upload assets
         uses: actions/upload-artifact@v3
         with:
