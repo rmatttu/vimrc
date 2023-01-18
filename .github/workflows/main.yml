@@ -17,22 +17,6 @@ jobs:
         with:
           submodules: true
 
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-        with:
-          tag_name:  ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          body: |
-            Changes in this Release
-            - First Change
-            - Second Change
-            **Full Changelog**: https://github.com/rmatttu/vimrc/compare/0.0.0...0.0.0
-          draft: true
-          prerelease: false
-
       - name: Create Release.txt
         run: |
           (
@@ -57,6 +41,22 @@ jobs:
         with:
           name: release.tar.gz
           path: release.tar.gz
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        with:
+          tag_name:  ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            Changes in this Release
+            - First Change
+            - Second Change
+            **Full Changelog**: https://github.com/rmatttu/vimrc/compare/0.0.0...0.0.0
+          draft: true
+          prerelease: false
 
       - name: Upload Release Assets
         uses: actions/upload-release-asset@v1.0.2
