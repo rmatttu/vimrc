@@ -26,14 +26,15 @@ fi
   rsync -a \
     --exclude ".gitignore" \
     --exclude ".gitmodules" \
-    --exclude ".git/" \
-    --exclude ".github/" \
-    --exclude "dev-tool/" \
+    --exclude ".git" \
+    --exclude ".github" \
+    --exclude "dev-tool" \
     ./ ~/.vim/
 )
 
 mkdir -pv ~/.vim/tmp/
 mkdir -pv ~/.vim/local/
+mkdir -pv ~/.vim/howm/
 
 echo "Create ~/.vimrc, ~/.gvimrc"
 cat <<EOT >~/.vimrc

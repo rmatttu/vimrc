@@ -47,9 +47,9 @@ jobs:
           tar \
           --exclude ".gitignore" \
           --exclude ".gitmodules" \
-          --exclude ".git/" \
-          --exclude ".github/" \
-          --exclude "dev-tool/" \
+          --exclude ".git" \
+          --exclude ".github" \
+          --exclude "dev-tool" \
           --exclude 'release.tar.gz' \
           -zcvf release.tar.gz .
       - name: Upload assets
