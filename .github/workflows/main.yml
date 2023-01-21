@@ -20,9 +20,9 @@ jobs:
       - name: Create Release.txt
         run: |
           (
-            printf "Git_branch\t%s\n" "$(git rev-parse --abbrev-ref HEAD)"
-            printf "Git_HEAD\t%s\n" "$(git rev-parse HEAD)"
-            printf "Git_tags\t%s\n" "$(git describe --tags)"
+            printf "repository_url\t%s\n", "${{github.repositoryUrl}}"
+            printf "ref\t%s\n", "${{github.ref}}"
+            printf "ref\t%s\n", "${{github.sha}}"
           ) | tee "Release.txt"
 
       - name: Create assets
