@@ -70,3 +70,12 @@
 [submodule "pack/default/start/vim-vsnip"]
 	path = pack/default/start/vim-vsnip
 	url = https://github.com/hrsh7th/vim-vsnip.git
+[submodule "pack/default/start/tlib_vim"]
+	path = pack/default/start/tlib_vim
+	url = https://github.com/tomtom/tlib_vim.git
+[submodule "pack/default/start/vim-addon-mw-utils"]
+	path = pack/default/start/vim-addon-mw-utils
+	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
+[submodule "pack/default/start/vim-snipmate"]
+	path = pack/default/start/vim-snipmate
+	url = https://github.com/garbas/vim-snipmate.git

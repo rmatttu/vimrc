@@ -78,7 +78,8 @@ endfunction
 "let g:airline_symbols.linenr = ''
 
 " fuenor/qfixhowm
-let howm_dir = $HOME.'/.config/vim/howm'
+let howm_dir = $HOME.'/.vim/howm'
+let qfixmemo_fileformat = 'unix'
 let QFixHowm_ListCloseOnJump = 1
 let QFixHowm_Folding = 0
 let howm_filename = '%Y-%m-%d-%H%M%S.txt'
@@ -111,9 +112,6 @@ endfunction
 " Shougo/vimfiler
 let g:vimfiler_as_default_explorer = 1
 
-" rmatttu/vim-uwsc
-autocmd BufNewFile,BufReadPost *.uws set filetype=uwsc
-
 " junegunn/vim-easy-align
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
@@ -128,76 +126,12 @@ let g:multi_cursor_use_default_mapping=1
 nmap <Leader>/ <Plug>(caw:hatpos:toggle)
 vmap <Leader>/ <Plug>(caw:hatpos:toggle)
 
-" dhruvasagar/vim-table-mode
-function! s:isAtStartOfLine(mapping)
-  let text_before_cursor = getline('.')[0 : col('.')-1]
-  let mapping_pattern = '\V' . escape(a:mapping, '\')
-  let comment_pattern = '\V' . escape(substitute(&l:commentstring, '%s.*$', '', ''), '\')
-  return (text_before_cursor =~? '^' . ('\v(' . comment_pattern . '\v)?') . '\s*\v' . mapping_pattern . '\v$')
-endfunction
-
-inoreabbrev <expr> <bar><bar>
-  \ <SID>isAtStartOfLine('\|\|') ?
-  \ '<c-o>:TableModeEnable<cr><bar><space><bar><left><left>' : '<bar><bar>'
-inoreabbrev <expr> __
-  \ <SID>isAtStartOfLine('__') ?
-  \ '<c-o>:silent! TableModeDisable<cr>' : '__'
-
-let g:table_mode_corner='|'
-
 " tpope/vim-markdown
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
 let g:markdown_syntax_conceal = 0
 let g:markdown_minlines = 100
 
-" kannokanno/previm
-" *.mdファイルをmarkdownとみなす
-augroup PrevimSettings
-  autocmd!
-  autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
-augroup END
-
-nnoremap <Leader>o :PrevimOpen<CR>
-
-" hrsh7th/vim-vsnip
-" hrsh7th/vim-vsnip-integ
-" NOTE: You can use other key to expand snippet.
-" Expand
-imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
-smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
-
-" Expand or jump
-imap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
-smap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
-
-" Jump forward or backward
-imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
-smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
-imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
-smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
-
-" Select or cut text to use as $TM_SELECTED_TEXT in the next snippet.
-" See https://github.com/hrsh7th/vim-vsnip/pull/50
-nmap        s   <Plug>(vsnip-select-text)
-xmap        s   <Plug>(vsnip-select-text)
-nmap        S   <Plug>(vsnip-cut-text)
-xmap        S   <Plug>(vsnip-cut-text)
-
-" If you want to use snippet for multiple filetypes, you can `g:vsnip_filetypes` for it.
-let g:vsnip_filetypes = {}
-let g:vsnip_filetypes.javascriptreact = ['javascript']
-let g:vsnip_filetypes.typescriptreact = ['typescript']
-let g:vsnip_filetypes.sh = ['shellscript']
-let g:vsnip_filetypes.yaml = ['dockercompose']
-
-let g:vsnip_snippet_dirs = [$HOME.'/.vim/local/vsnip']
-if ((has('win32') || has('win64')))
-  let g:vsnip_snippet_dir=expand($HOME.'/AppData/Roaming/Code/User/snippets')
-endif
-if has('linux')
-  " TODO Set path
-endif
-if has('mac')
-  let g:vsnip_snippet_dir=expand($HOME.'/Library/Application Support/Code/User/snippets')
-endif
+" vim-snipmate
+let g:snipMate = { 'snippet_version' : 1 }
+set runtimepath+=~/.vim/local
