@@ -13,7 +13,7 @@ mkdir vimrc && curl -sLJ https://github.com/rmatttu/vimrc/releases/latest/downlo
 
 ### howm memo directory
 
-Please backup `~/.vim/howm` directory.
+Please backup `~/.config/vim/howm` directory.
 
 ### How to manage package
 

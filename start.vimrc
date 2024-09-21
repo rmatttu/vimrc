@@ -78,7 +78,7 @@ endfunction
 "let g:airline_symbols.linenr = ''
 
 " fuenor/qfixhowm
-let howm_dir = $HOME.'/.vim/howm'
+let howm_dir = $HOME.'/.config/vim/howm'
 let qfixmemo_fileformat = 'unix'
 let QFixHowm_ListCloseOnJump = 1
 let QFixHowm_Folding = 0
@@ -134,4 +134,4 @@ let g:markdown_minlines = 100
 
 " vim-snipmate
 let g:snipMate = { 'snippet_version' : 1 }
-set runtimepath+=~/.vim/local
+set runtimepath+=~/.config/vim/local
