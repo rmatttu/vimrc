@@ -85,7 +85,7 @@ let QFixHowm_Folding = 0
 let howm_filename = '%Y-%m-%d-%H%M%S.txt'
 
 " Shougo/unite.vim
-let g:unite_enable_start_insert=1
+let g:unite_enable_start_insert = 1
 " バッファ一覧
 " noremap <C-P> :Unite buffer<CR>
 " ファイル一覧
@@ -120,7 +120,7 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 " terryma/vim-multiple-cursors
-let g:multi_cursor_use_default_mapping=1
+let g:multi_cursor_use_default_mapping = 1
 
 " tyru/caw.vim.git
 nmap <Leader>/ <Plug>(caw:hatpos:toggle)
