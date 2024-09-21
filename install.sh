@@ -22,6 +22,7 @@ fi
 
 (
   cd "$(dirname "$0")"
+  mkdir -pv ~/.config/vim/
   echo "copy $(pwd)/ to ~/.config/vim/"
   rsync -a \
     --exclude ".gitignore" \
