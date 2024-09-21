@@ -83,6 +83,7 @@ let qfixmemo_fileformat = 'unix'
 let QFixHowm_ListCloseOnJump = 1
 let QFixHowm_Folding = 0
 let howm_filename = '%Y-%m-%d-%H%M%S.txt'
+let QFixHowm_FileType = 'markdown.qfix_memo'
 
 " Shougo/unite.vim
 let g:unite_enable_start_insert = 1
