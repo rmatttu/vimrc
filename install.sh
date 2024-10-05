@@ -24,13 +24,16 @@ fi
   cd "$(dirname "$0")"
   mkdir -pv ~/.config/vim/
   echo "copy $(pwd)/ to ~/.config/vim/"
-  rsync -a \
-    --exclude ".gitignore" \
-    --exclude ".gitmodules" \
-    --exclude ".git" \
-    --exclude ".github" \
-    --exclude "dev-tool" \
-    ./ ~/.config/vim/
+  echo "-------"
+  find . -maxdepth 1 -mindepth 1 \
+    -not -path "./.gitignore" \
+    -not -path "./.gitmodules" \
+    -not -path "./.git" \
+    -not -path "./.github" \
+    -not -path "./dev-tool" \
+    -exec cp -rp {} ~/.config/vim/ \; \
+    -print
+  echo "-------"
 )
 
 mkdir -pv ~/.config/vim/tmp/
