@@ -7,9 +7,9 @@ now_text=$(date +%Y-%m-%d_%H-%M-%S)
 old_dir=~/old-config-vim-$now_text
 
 # Backup if exists
-if [[ -e ~/.vim ]]; then
+if [[ -e ~/.config/vim ]]; then
   mkdir -pv "$old_dir"
-  mv -v ~/.vim "$old_dir"
+  mv -v ~/.config/vim "$old_dir"
 fi
 if [[ -e ~/.vimrc ]]; then
   mkdir -pv "$old_dir"
@@ -22,24 +22,25 @@ fi
 
 (
   cd "$(dirname "$0")"
-  echo "copy $(pwd)/ to ~/.vim/"
+  mkdir -pv ~/.config/vim/
+  echo "copy $(pwd)/ to ~/.config/vim/"
   rsync -a \
     --exclude ".gitignore" \
     --exclude ".gitmodules" \
     --exclude ".git" \
     --exclude ".github" \
     --exclude "dev-tool" \
-    ./ ~/.vim/
+    ./ ~/.config/vim/
 )
 
-mkdir -pv ~/.vim/tmp/
-mkdir -pv ~/.vim/local/
-mkdir -pv ~/.vim/howm/
+mkdir -pv ~/.config/vim/tmp/
+mkdir -pv ~/.config/vim/local/
+mkdir -pv ~/.config/vim/howm/
 
 echo "Create ~/.vimrc, ~/.gvimrc"
 cat <<EOT >~/.vimrc
-source ~/.vim/vimrc
+source ~/.config/vim/vimrc
 EOT
 cat <<EOT >~/.gvimrc
-source ~/.vim/gvimrc
+source ~/.config/vim/gvimrc
 EOT

@@ -78,14 +78,15 @@ endfunction
 "let g:airline_symbols.linenr = ''
 
 " fuenor/qfixhowm
-let howm_dir = $HOME.'/.vim/howm'
+let howm_dir = $HOME.'/.config/vim/howm'
 let qfixmemo_fileformat = 'unix'
 let QFixHowm_ListCloseOnJump = 1
 let QFixHowm_Folding = 0
 let howm_filename = '%Y-%m-%d-%H%M%S.txt'
+let QFixHowm_FileType = 'markdown.qfix_memo'
 
 " Shougo/unite.vim
-let g:unite_enable_start_insert=1
+let g:unite_enable_start_insert = 1
 " バッファ一覧
 " noremap <C-P> :Unite buffer<CR>
 " ファイル一覧
@@ -120,7 +121,7 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 " terryma/vim-multiple-cursors
-let g:multi_cursor_use_default_mapping=1
+let g:multi_cursor_use_default_mapping = 1
 
 " tyru/caw.vim.git
 nmap <Leader>/ <Plug>(caw:hatpos:toggle)
@@ -134,4 +135,4 @@ let g:markdown_minlines = 100
 
 " vim-snipmate
 let g:snipMate = { 'snippet_version' : 1 }
-set runtimepath+=~/.vim/local
+set runtimepath+=~/.config/vim/local
